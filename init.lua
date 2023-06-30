@@ -27,6 +27,8 @@ require('language-servers')
 require('nvim-cmp')
 -- Setup of additional filetypes
 require('additional-filetypes')
+-- Setup custom text objects
+require('text-objects')
 
 -- Chosen theme
 vim.cmd.colorscheme 'onedark'
