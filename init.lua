@@ -11,8 +11,6 @@ vim.g.maplocalleader = ' '
 require('package-manager')
 -- Auto initialize plugins and configure them
 require('lazy').setup('plugins')
--- TODO is this needed and how to remove it from init.lua
-pcall(require('telescope').load_extension, 'fzf')
 -- Changes to default neovim options
 require('options')
 -- Abbreviations

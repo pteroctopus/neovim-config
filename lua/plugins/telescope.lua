@@ -16,6 +16,9 @@ return {
         },
       },
     },
+    config = function (_, opts)
+      pcall(require('telescope').load_extension, 'fzf')
+    end,
   },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
