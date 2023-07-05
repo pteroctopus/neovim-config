@@ -13,4 +13,4 @@ vim.cmd('cabbrev smd set filetype=markdown')
 vim.cmd('cabbrev sjson set filetype=json')
 
 -- Copy file path of current buffer to system clipboard
-vim.cmd('cabbrev cpath let @+ = expand("%")')
+vim.cmd('cabbrev cpath let @+ = expand("%:p")')
