@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+-- Plugin configuration
 return {
   'SmiteshP/nvim-navic',
   dependencies = {

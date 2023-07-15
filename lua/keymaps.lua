@@ -74,9 +74,6 @@ vim.keymap.set('n', '<localleader>sw', require('telescope.builtin').grep_string,
 vim.keymap.set('n', '<localleader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<localleader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
--- Nvim-navbuddy plugin related mappings
-vim.keymap.set('n', '<localleader>b', ':Navbuddy<cr>')
-
 -- Textcase plugin related mappings
 vim.keymap.set('n', 'gas', function () require('textcase').current_word('to_snake_case') end, { desc = 'Change case to snake case'})
 vim.keymap.set('n', 'gac', function () require('textcase').current_word('to_camel_case') end, { desc = 'Change case to camel case'})
