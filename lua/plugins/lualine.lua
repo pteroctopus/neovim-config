@@ -27,7 +27,7 @@ return {
       },
       lualine_x = {
         function()
-          return vim.api.nvim_buf_get_name(0)
+          return vim.fn.expand('%:.')
         end
       },
     },
@@ -39,20 +39,12 @@ return {
       },
       lualine_y = {
         'filename'
-        -- function ()
-        --   return vim.api.nvim_buf_get_name(0)
-        -- end
       },
     },
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch', 'diff', 'diagnostics' },
       lualine_c = { 'filename' },
-      -- lualine_c = {
-      --   function ()
-      --     return ' ' .. vim.fn.getcwd()
-      --   end,
-      -- },
       lualine_x = { 'encoding', 'fileformat', 'filetype' },
       lualine_y = { 'progress' },
       lualine_z = { 'location' },
