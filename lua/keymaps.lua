@@ -73,6 +73,7 @@ vim.keymap.set('n', '<localleader>sh', require('telescope.builtin').help_tags, {
 vim.keymap.set('n', '<localleader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<localleader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<localleader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<localleader>sr', require('telescope.builtin').resume, { desc = '[R]esume [P]icker' })
 
 -- Textcase plugin related mappings
 vim.keymap.set('n', 'gas', function () require('textcase').current_word('to_snake_case') end, { desc = 'Change case to snake case'})
