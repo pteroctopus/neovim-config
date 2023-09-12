@@ -29,6 +29,8 @@ vim.keymap.set('n', '<localleader>n', ':NvimTreeFindFileToggle<cr>')
 vim.keymap.set('n', '<localleader>f', ':NvimTreeFindFile<cr>')
 -- Remap Enter to also remove search highlight
 vim.keymap.set('n', '<cr>', ':noh<cr><cr>')
+-- Remap Esc to also remove search highlight
+vim.keymap.set('n', '<esc>', ':noh<esc>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
