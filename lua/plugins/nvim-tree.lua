@@ -9,5 +9,6 @@ return {
     view = {
       width = 30,
     }
-  }
+  },
+  keys = require('../../keymaps').nvim_tree,
 }

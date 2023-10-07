@@ -19,6 +19,7 @@ return {
     config = function (_, opts)
       pcall(require('telescope').load_extension, 'fzf')
     end,
+    keys = require('../../keymaps').telescope
   },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
