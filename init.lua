@@ -16,7 +16,7 @@ require('options')
 -- Abbreviations
 require('abbreviations')
 -- Custom keymaps
-require('keymaps')
+require('keymaps').basic()
 -- Highlight on yank text object
 require('yank-highlight')
 -- Automatic window split resize

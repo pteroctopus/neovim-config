@@ -1,6 +1,3 @@
--- Nvim-navbuddy plugin related mappings
-vim.keymap.set('n', '<localleader>b', ':Navbuddy<cr>')
-
 -- Plugin configuration
 return {
   "SmiteshP/nvim-navbuddy",
@@ -17,4 +14,5 @@ return {
       preference = nil,
     },
   },
+  keys = require('../../keymaps').nvim_navbuddy,
 }

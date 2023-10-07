@@ -6,7 +6,13 @@ return {
     options = {
       component_separators = '|',
       section_separators = '',
-      theme = 'auto'
+      theme = 'auto',
+      disabled_filetypes = {
+        -- nvim-dap-ui plugin buffer filetypes for debug windows
+        'dap-repl', 'dapui_console', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks', 'dapui_watches',
+        -- nvim-tree plugin buffer
+        'NvimTree',
+      }
     },
     winbar = {
       lualine_b = {
