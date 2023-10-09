@@ -1,6 +1,15 @@
+require('../../keymaps').oil()
+
 return {
   'stevearc/oil.nvim',
   opts = {
+    default_file_explorer = true,
+    columns = {
+      "icon",
+      --"permissions",
+      --"size",
+      --"mtime",
+    },
     -- [[ Default keymaps]]
     -- keymaps = {
     --   ["g?"] = "actions.show_help",
