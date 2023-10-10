@@ -23,8 +23,6 @@ require('yank-highlight')
 require('auto-split-resize')
 -- LSP on attach configuration
 require('language-servers')
--- nvim-cmp configuration
-require('nvim-cmp')
 -- Setup of additional filetypes
 require('additional-filetypes')
 -- Setup custom text objects
