@@ -14,5 +14,5 @@ return {
       preference = nil,
     },
   },
-  keys = require('../../keymaps').nvim_navbuddy,
+  keys = require('keymaps').nvim_navbuddy,
 }

@@ -10,5 +10,5 @@ return {
       width = 30,
     }
   },
-  keys = require('../../keymaps').nvim_tree,
+  keys = require('keymaps').nvim_tree,
 }

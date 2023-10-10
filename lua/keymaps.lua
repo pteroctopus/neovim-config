@@ -1,4 +1,26 @@
-local keymaps = {
+-- [[ Oil functions ]]
+local oil_toggle = function (path)
+     if vim.bo.filetype == 'oil' then
+      -- Close current oil buffer
+      vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), { force = true })
+    else
+      -- Open oil buffer
+      require('oil').open(path)
+    end
+  end
+
+-- Oil open path in current directory of the buffer
+local oil_toggle_curr_buf_path = function ()
+  oil_toggle(vim.fn.expand('%:h'))
+end
+
+-- Oil open path in current working directory
+local oil_toggle_cwd = function ()
+  oil_toggle('.')
+end
+
+
+return {
 
   basic = function ()
     -- [[ Basic Keymaps ]]
@@ -85,7 +107,8 @@ local keymaps = {
   end,
 
   oil = function ()
-    vim.keymap.set('n', '<localleader>o', ':Oil .<cr>', { desc = '[O] Oil file browser' })
+    vim.keymap.set('n', '<localleader>o', oil_toggle_curr_buf_path, { desc = '[O] Oil current buffer path' })
+    vim.keymap.set('n', '<localleader>O', oil_toggle_cwd, { desc = '[O] Oil cwd path' })
   end,
 
   nvim_dap_ui = function (dapui)
@@ -156,44 +179,3 @@ local keymaps = {
   end,
 
 }
-
-
--- TODO
--- -- Textcase plugin related mappings
--- vim.keymap.set('n', 'gas', function () require('textcase').current_word('to_snake_case') end, { desc = 'Change case to snake case'})
--- vim.keymap.set('n', 'gac', function () require('textcase').current_word('to_camel_case') end, { desc = 'Change case to camel case'})
--- vim.keymap.set('n', 'gau', function () require('textcase').current_word('to_upper_case') end, { desc = 'Change case to upper case'})
--- vim.keymap.set('n', 'gal', function () require('textcase').current_word('to_lower_case') end, { desc = 'Change case to lower case'})
--- vim.keymap.set('n', 'gah', function () require('textcase').current_word('to_dash_case') end, { desc = 'Change case to dash case'})
--- vim.keymap.set('n', 'gan', function () require('textcase').current_word('to_constant_case') end, { desc = 'Change case to constant case'})
--- vim.keymap.set('n', 'gad', function () require('textcase').current_word('to_dot_case') end, { desc = 'Change case to dot case'})
--- vim.keymap.set('n', 'gaa', function () require('textcase').current_word('to_phrase_case') end, { desc = 'Change case to phrase case'})
--- vim.keymap.set('n', 'gap', function () require('textcase').current_word('to_pascal_case') end, { desc = 'Change case to pascal case'})
--- vim.keymap.set('n', 'gat', function () require('textcase').current_word('to_title_case') end, { desc = 'Change case to title case'})
--- vim.keymap.set('n', 'gaf', function () require('textcase').current_word('to_path_case') end, { desc = 'Change case to path case'})
-
--- vim.keymap.set('n', 'gaS', function () require('textcase').lsp_rename('to_snake_case') end, { desc = 'Change variable case to snake case'})
--- vim.keymap.set('n', 'gaC', function () require('textcase').lsp_rename('to_camel_case') end, { desc = 'Change variable case to camel case'})
--- vim.keymap.set('n', 'gaU', function () require('textcase').lsp_rename('to_upper_case') end, { desc = 'Change variable to upper case'})
--- vim.keymap.set('n', 'gaL', function () require('textcase').lsp_rename('to_lower_case') end, { desc = 'Change variable to lower case'})
--- vim.keymap.set('n', 'gaH', function () require('textcase').lsp_rename('to_dash_case') end, { desc = 'Change variable to dash case'})
--- vim.keymap.set('n', 'gaN', function () require('textcase').lsp_rename('to_constant_case') end, { desc = 'Change variable to constant case'})
--- vim.keymap.set('n', 'gaD', function () require('textcase').lsp_rename('to_dot_case') end, { desc = 'Change variable to dot case'})
--- vim.keymap.set('n', 'gaA', function () require('textcase').lsp_rename('to_phrase_case') end, { desc = 'Change variable to phrase case'})
--- vim.keymap.set('n', 'gaP', function () require('textcase').lsp_rename('to_pascal_case') end, { desc = 'Change variable to pascal case'})
--- vim.keymap.set('n', 'gaT', function () require('textcase').lsp_rename('to_title_case') end, { desc = 'Change variable to title case'})
--- vim.keymap.set('n', 'gaF', function () require('textcase').lsp_rename('to_path_case') end, { desc = 'Change variable to path case'})
-
--- vim.keymap.set('n', 'ges', function () require('textcase').operator('to_snake_case') end, { desc = 'Change operator case to snake case'})
--- vim.keymap.set('n', 'gec', function () require('textcase').operator('to_camel_case') end, { desc = 'Change operator case to camel case'})
--- vim.keymap.set('n', 'geu', function () require('textcase').operator('to_upper_case') end, { desc = 'Change operator to upper case'})
--- vim.keymap.set('n', 'gel', function () require('textcase').operator('to_lower_case') end, { desc = 'Change operator to lower case'})
--- vim.keymap.set('n', 'geh', function () require('textcase').operator('to_dash_case') end, { desc = 'Change operator to dash case'})
--- vim.keymap.set('n', 'gen', function () require('textcase').operator('to_constant_case') end, { desc = 'Change operator to constant case'})
--- vim.keymap.set('n', 'ged', function () require('textcase').operator('to_dot_case') end, { desc = 'Change operator to dot case'})
--- vim.keymap.set('n', 'gea', function () require('textcase').operator('to_phrase_case') end, { desc = 'Change operator to phrase case'})
--- vim.keymap.set('n', 'gep', function () require('textcase').operator('to_pascal_case') end, { desc = 'Change operator to pascal case'})
--- vim.keymap.set('n', 'get', function () require('textcase').operator('to_title_case') end, { desc = 'Change operator to title case'})
--- vim.keymap.set('n', 'gef', function () require('textcase').operator('to_path_case') end, { desc = 'Change operator to path case'})
-
-return keymaps

@@ -1,3 +1,5 @@
+local keymaps = require('keymaps')
+
 return {
 
   -- Debug adapter protocol client
@@ -9,7 +11,7 @@ return {
     {
       "rcarriga/nvim-dap-ui",
       -- stylua: ignore
-      keys = function () return require('../../keymaps').nvim_dap_ui(require('dapui')) end,
+      keys = function () return keymaps.nvim_dap_ui(require('dapui')) end,
       opts = {},
       config = function(_, opts)
         -- setup dap config by VsCode launch.json file
@@ -73,7 +75,7 @@ return {
   },
 
   -- stylua: ignore
-  keys = function () return require('../../keymaps').nvim_dap(require('dap'), require('dap.ui.widgets')) end,
+  keys = function () return keymaps.nvim_dap(require('dap'), require('dap.ui.widgets')) end,
 
   config = function()
     local icons = {

@@ -12,7 +12,7 @@ return {
     },
 
     on_attach = function (bufnr)
-      require('../../keymaps').gitsigns(bufnr)
+      require('keymaps').gitsigns(bufnr)
     end,
 
     current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`

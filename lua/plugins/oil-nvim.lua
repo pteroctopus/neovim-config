@@ -1,4 +1,4 @@
-require('../../keymaps').oil()
+require('keymaps').oil()
 
 return {
   'stevearc/oil.nvim',
