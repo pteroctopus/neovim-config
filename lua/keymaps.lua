@@ -1,13 +1,13 @@
 -- [[ Oil functions ]]
 local oil_toggle = function (path)
-     if vim.bo.filetype == 'oil' then
-      -- Close current oil buffer
-      vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), { force = true })
-    else
-      -- Open oil buffer
-      require('oil').open(path)
-    end
+  if vim.bo.filetype == 'oil' then
+    -- Close current oil buffer
+    vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), { force = true })
+  else
+    -- Open oil buffer
+    require('oil').open(path)
   end
+end
 
 -- Oil open path in current directory of the buffer
 local oil_toggle_curr_buf_path = function ()
@@ -144,7 +144,7 @@ return {
     vim.keymap.set('n', '<localleader>la', vim.lsp.buf.code_action, { buffer = bufnr, desc = '[L] Code Action' })
 
     vim.keymap.set('n', '<localleader>ld', vim.lsp.buf.definition, { buffer = bufnr, desc = '[L] Goto Definition' })
-    -- TODO
+
     vim.keymap.set('n', '<localleader>lf', require('telescope.builtin').lsp_references, { buffer = bufnr, desc = '[L] Goto References' })
     vim.keymap.set('n', '<localleader>li', vim.lsp.buf.implementation, { buffer = bufnr, desc = '[L] Goto Implementation' })
     vim.keymap.set('n', '<localleader>lD', vim.lsp.buf.type_definition, { buffer = bufnr, desc = '[L] Type Definition' })

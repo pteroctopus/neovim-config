@@ -10,7 +10,7 @@ return {
   'michaeljsmith/vim-indent-object',
   'chrisbra/Colorizer',
   'chrisbra/unicode.vim',
-  'MarcWeber/vim-addon-mw-utils',
+  'MarcWeber/vim-addon-mw-utils', -- TODO Check if this is used by some other plugin. If not then remove
   'dhruvasagar/vim-table-mode',
   'https://github.com/andreshazard/vim-freemarker.git',
   'https://github.com/godlygeek/tabular',
