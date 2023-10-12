@@ -37,7 +37,7 @@ return {
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
-    opts = function ()
+    opts = function()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
       require('luasnip.loaders.from_vscode').lazy_load()
