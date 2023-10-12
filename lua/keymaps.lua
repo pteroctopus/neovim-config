@@ -188,7 +188,14 @@ return {
   end,
 
   todo_comments = function ()
-    vim.keymap.set('n', '<localleader>xc', ':TodoTrouble<cr>', { desc = '[TC] Toggle TODO comments', silent = true, })
+    vim.keymap.set('n', '<localleader>xc', ':TodoTrouble<cr>', { desc = '[TC] Toggle Todo comments', silent = true, })
   end,
+
+  diffview = function ()
+    vim.keymap.set('n', '<localleader>go', ':DiffviewOpen<cr>', { desc = '[DV] Diff View Open', silent = true })
+    vim.keymap.set('n', '<localleader>gO', ':DiffviewOpen <c-r>+<cr><cr>', { desc = '[DV] Diff View Open with commit hash from " register', silent = true })
+    vim.keymap.set('n', '<localleader>gh', ':DiffviewFileHistory<cr>', { desc = '[DV] Diff File History', silent = true })
+    vim.keymap.set('n', '<localleader>gc', ':DiffviewClose<cr>', { desc = '[DV] Diff View Close', silent = true })
+  end
 
 }

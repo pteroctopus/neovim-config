@@ -1,4 +1,4 @@
--- !!This is a workaround (see how to do it correctly)!! because of nvim-navic plugin.
+-- TODO This is a workaround (see how to do it correctly)!! because of nvim-navic plugin.
 -- It needs language server support to generate breadcrumbs and ansiblels doesn't have it.
 -- This autocommand will change the filetype of yaml.ansible file to yaml so that yamlls language server
 -- starts also and switch back filetype to yaml.ansible
