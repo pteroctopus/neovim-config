@@ -8,8 +8,8 @@ return {
   opts = {
     -- Add languages to be installed here that you want installed for treesitter
     auto_install = true,
-    ensure_installed = "all",
-    --ignore_install = { "terraform" },
+    ensure_installed = 'all',
+    --ignore_install = { 'terraform' },
 
     highlight = { enable = true },
     indent = { enable = true, disable = { 'python' } },

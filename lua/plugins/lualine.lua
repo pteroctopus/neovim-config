@@ -24,7 +24,7 @@ return {
       },
       lualine_c = {
         function()
-          local navic = require("nvim-navic")
+          local navic = require('nvim-navic')
           local bufnr = vim.api.nvim_get_current_buf()
           if navic.is_available(bufnr) then
             return navic.get_location({}, bufnr)

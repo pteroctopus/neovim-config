@@ -20,19 +20,19 @@ local servers = {
   ansiblels = {
     ansible = {
       ansible = {
-        path = "ansible"
+        path = 'ansible'
       },
       executionEnvironment = {
         enabled = false
       },
       python = {
-        interpreterPath = "python"
+        interpreterPath = 'python'
       },
       validation = {
         enabled = true,
         lint = {
           enabled = true,
-          path = "ansible-lint"
+          path = 'ansible-lint'
         }
       }
     }
@@ -45,10 +45,10 @@ local servers = {
     yaml = {
       schemas = {
         kubernetes = {
-          "*.kube.yml",
-          "*.kube.yaml",
-          "*kubectl-edit-*.yaml",
-          "*role*/templates/create*.y*ml",
+          '*.kube.yml',
+          '*.kube.yaml',
+          '*kubectl-edit-*.yaml',
+          '*role*/templates/create*.y*ml',
         }
       }
     }

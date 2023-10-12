@@ -18,7 +18,7 @@ vim.o.inccommand = 'split'
 vim.o.listchars = 'tab:»·,trail:·,extends:>,precedes:<,eol:$,space:·'
 
 -- Disable welcome message
-vim.o.shortmess = vim.o.shortmess .. "I"
+vim.o.shortmess = vim.o.shortmess .. 'I'
 
 -- Make line numbers default
 vim.wo.number = true

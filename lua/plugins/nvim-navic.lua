@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd(
 return {
   'SmiteshP/nvim-navic',
   dependencies = {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
   },
   opts = {
     highlight = true,

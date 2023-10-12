@@ -13,9 +13,9 @@ let g:plantuml_previewer#viewer_path = '~/plantuml/viewer'
 
 
 return {
-  "weirongxu/plantuml-previewer.vim",
+  'weirongxu/plantuml-previewer.vim',
   dependencies = {
-    "tyru/open-browser.vim",
-    "aklt/plantuml-syntax",
+    'tyru/open-browser.vim',
+    'aklt/plantuml-syntax',
   },
 }

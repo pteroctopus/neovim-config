@@ -50,8 +50,8 @@ return {
     -- Remap Esc to also remove search highlight
     vim.keymap.set('n', '<esc>', ':noh<esc>', { silent = true })
     -- Remap for dealing with word wrap
-    --vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-    --vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+    --vim.keymap.set('n', 'k', 'v:count == 0 ? 'gk' : 'k'', { expr = true, silent = true })
+    --vim.keymap.set('n', 'j', 'v:count == 0 ? 'gj' : 'j'', { expr = true, silent = true })
 
     -- Format code
     vim.keymap.set(
@@ -59,7 +59,7 @@ return {
       function()
         if vim.bo.filetype == 'markdown' then
           vim.bo.textwidth = 80
-          vim.o.colorcolumn = "80"
+          vim.o.colorcolumn = '80'
           vim.api.nvim_command(':w')
           vim.api.nvim_command(':silent !deno fmt %')
           print('Deno format complete')
@@ -113,29 +113,29 @@ return {
 
   nvim_dap_ui = function (dapui)
     return {
-      { "<localleader>du", function() dapui.toggle({}) end, desc = "[D] Dap UI" },
-      { "<localleader>de", function() dapui.eval() end,     desc = "[D] Eval",  mode = { "n", "v" } },
+      { '<localleader>du', function() dapui.toggle({}) end, desc = '[D] Dap UI' },
+      { '<localleader>de', function() dapui.eval() end,     desc = '[D] Eval',  mode = { 'n', 'v' } },
     }
   end,
 
   nvim_dap = function (dap, dap_ui_widgets)
     return {
-      { "<localleader>dB", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "[D] Breakpoint Condition" },
-      { "<localleader>db", function() dap.toggle_breakpoint() end, desc = "[D] Toggle Breakpoint" },
-      { "<localleader>dc", function() dap.continue() end, desc = "[D] Continue" },
-      { "<localleader>dC", function() dap.run_to_cursor() end, desc = "[D] Run to Cursor" },
-      { "<localleader>dg", function() dap.goto_() end, desc = "[D] Go to line (no execute)" },
-      { "<localleader>di", function() dap.step_into() end, desc = "[D] Step Into" },
-      { "<localleader>dj", function() dap.down() end, desc = "[D] Down" },
-      { "<localleader>dk", function() dap.up() end, desc = "[D] Up" },
-      { "<localleader>dl", function() dap.run_last() end, desc = "[D] Run Last" },
-      { "<localleader>dO", function() dap.step_out() end, desc = "[D] Step Out" },
-      { "<localleader>do", function() dap.step_over() end, desc = "[D] Step Over" },
-      { "<localleader>dp", function() dap.pause() end, desc = "[D] Pause" },
-      { "<localleader>dr", function() dap.repl.toggle() end, desc = "[D] Toggle REPL" },
-      { "<localleader>ds", function() dap.session() end, desc = "[D] Session" },
-      { "<localleader>dt", function() dap.terminate() end, desc = "[D] Terminate" },
-      { "<localleader>dw", function() dap_ui_widgets.hover() end, desc = "[D] Widgets" },
+      { '<localleader>dB', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = '[D] Breakpoint Condition' },
+      { '<localleader>db', function() dap.toggle_breakpoint() end, desc = '[D] Toggle Breakpoint' },
+      { '<localleader>dc', function() dap.continue() end, desc = '[D] Continue' },
+      { '<localleader>dC', function() dap.run_to_cursor() end, desc = '[D] Run to Cursor' },
+      { '<localleader>dg', function() dap.goto_() end, desc = '[D] Go to line (no execute)' },
+      { '<localleader>di', function() dap.step_into() end, desc = '[D] Step Into' },
+      { '<localleader>dj', function() dap.down() end, desc = '[D] Down' },
+      { '<localleader>dk', function() dap.up() end, desc = '[D] Up' },
+      { '<localleader>dl', function() dap.run_last() end, desc = '[D] Run Last' },
+      { '<localleader>dO', function() dap.step_out() end, desc = '[D] Step Out' },
+      { '<localleader>do', function() dap.step_over() end, desc = '[D] Step Over' },
+      { '<localleader>dp', function() dap.pause() end, desc = '[D] Pause' },
+      { '<localleader>dr', function() dap.repl.toggle() end, desc = '[D] Toggle REPL' },
+      { '<localleader>ds', function() dap.session() end, desc = '[D] Session' },
+      { '<localleader>dt', function() dap.terminate() end, desc = '[D] Terminate' },
+      { '<localleader>dw', function() dap_ui_widgets.hover() end, desc = '[D] Widgets' },
     }
   end,
 
@@ -166,7 +166,7 @@ return {
 
   nvim_navbuddy = function ()
     return {
-      {'<localleader>b', ':Navbuddy<cr>', mode = 'n', desc = "[NB] Navbuddy" },
+      {'<localleader>b', ':Navbuddy<cr>', mode = 'n', desc = '[NB] Navbuddy' },
     }
   end,
 
@@ -179,16 +179,16 @@ return {
   end,
 
   trouble_nvim = function ()
-    vim.keymap.set("n", "<localleader>xx", function() require("trouble").toggle() end, { desc = '[TR] Toggle trouble' })
-    vim.keymap.set("n", "<localleader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = '[TR] Workspace diagnostics' })
-    vim.keymap.set("n", "<localleader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = '[TR] Document diagnostics' })
-    vim.keymap.set("n", "<localleader>xq", function() require("trouble").toggle("quickfix") end, { desc = '[TR] Quickfix list' })
-    vim.keymap.set("n", "<localleader>xl", function() require("trouble").toggle("loclist") end, { desc = '[TR] Location list' })
-    vim.keymap.set("n", "<localleader>xr", function() require("trouble").toggle("lsp_references") end, { desc = '[TR] LSP references' })
+    vim.keymap.set('n', '<localleader>xx', function() require('trouble').toggle() end, { desc = '[TR] Toggle trouble' })
+    vim.keymap.set('n', '<localleader>xw', function() require('trouble').toggle('workspace_diagnostics') end, { desc = '[TR] Workspace diagnostics' })
+    vim.keymap.set('n', '<localleader>xd', function() require('trouble').toggle('document_diagnostics') end, { desc = '[TR] Document diagnostics' })
+    vim.keymap.set('n', '<localleader>xq', function() require('trouble').toggle('quickfix') end, { desc = '[TR] Quickfix list' })
+    vim.keymap.set('n', '<localleader>xl', function() require('trouble').toggle('loclist') end, { desc = '[TR] Location list' })
+    vim.keymap.set('n', '<localleader>xr', function() require('trouble').toggle('lsp_references') end, { desc = '[TR] LSP references' })
   end,
 
   todo_comments = function ()
-    vim.keymap.set("n", "<localleader>xc", ':TodoTrouble<cr>', { desc = '[TC] Toggle TODO comments', silent = true, })
+    vim.keymap.set('n', '<localleader>xc', ':TodoTrouble<cr>', { desc = '[TC] Toggle TODO comments', silent = true, })
   end,
 
 }

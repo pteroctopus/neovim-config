@@ -32,4 +32,4 @@ require('text-objects')
 vim.cmd.colorscheme 'onedark'
 
 -- Print location from which neovim configuration was loaded
-print(os.getenv("MYVIMRC"))
+print(os.getenv('MYVIMRC'))

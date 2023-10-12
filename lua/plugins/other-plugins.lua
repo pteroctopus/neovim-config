@@ -1,6 +1,6 @@
 return {
-  -- "gc" to comment visual regions/lines
-  -- "gcc" to comment line
+  -- 'gc' to comment visual regions/lines
+  -- 'gcc' to comment line
   { 'numToStr/Comment.nvim', opts = {} },
 
   -- Icons
