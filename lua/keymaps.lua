@@ -102,7 +102,7 @@ return {
 
   nvim_tree = function()
     return {
-      { '<localleader>n', ':NvimTreeFindFileToggle<cr>', mode = 'n', { desc = '[TR] Toggle nvim-tree and focus on current file' } },
+      { '<localleader>n', ':NvimTreeFindFileToggle<cr>', mode = 'n', desc = '[TR] Toggle nvim-tree' },
     }
   end,
 
@@ -196,6 +196,8 @@ return {
     vim.keymap.set('n', '<localleader>gO', ':DiffviewOpen <c-r>+<cr><cr>', { desc = '[DV] Diff View Open with commit hash from " register', silent = true })
     vim.keymap.set('n', '<localleader>gh', ':DiffviewFileHistory<cr>', { desc = '[DV] Diff File History', silent = true })
     vim.keymap.set('n', '<localleader>gc', ':DiffviewClose<cr>', { desc = '[DV] Diff View Close', silent = true })
+    vim.keymap.set( "n", "<localleader>j", require('diffview.actions').select_next_entry, { desc = "[DV] Open diff for the next file" } )
+    vim.keymap.set( "n", "<localleader>k", require('diffview.actions').select_prev_entry, { desc = "[DV] Open diff for the previous file" } )
   end
 
 }
