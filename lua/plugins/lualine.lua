@@ -12,6 +12,8 @@ return {
         'dap-repl', 'dapui_console', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks', 'dapui_watches',
         -- nvim-tree plugin buffer
         'NvimTree',
+        -- Trouble plugin window
+        'Trouble',
       }
     },
     winbar = {

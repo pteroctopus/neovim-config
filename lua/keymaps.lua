@@ -188,7 +188,7 @@ return {
   end,
 
   todo_comments = function ()
-    vim.keymap.set("n", "<localleader>xc", ':TodoTrouble<cr>', { desc = '[TC] Toggle TODO comments' })
+    vim.keymap.set("n", "<localleader>xc", ':TodoTrouble<cr>', { desc = '[TC] Toggle TODO comments', silent = true, })
   end,
 
 }
