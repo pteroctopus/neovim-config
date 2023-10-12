@@ -178,4 +178,17 @@ return {
     vim.keymap.set('n', '<localleader>gb', require('gitsigns').toggle_current_line_blame, { buffer = bufnr, desc = '[GS] Current line blame'})
   end,
 
+  trouble_nvim = function ()
+    vim.keymap.set("n", "<localleader>xx", function() require("trouble").toggle() end, { desc = '[TR] Toggle trouble' })
+    vim.keymap.set("n", "<localleader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = '[TR] Workspace diagnostics' })
+    vim.keymap.set("n", "<localleader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = '[TR] Document diagnostics' })
+    vim.keymap.set("n", "<localleader>xq", function() require("trouble").toggle("quickfix") end, { desc = '[TR] Quickfix list' })
+    vim.keymap.set("n", "<localleader>xl", function() require("trouble").toggle("loclist") end, { desc = '[TR] Location list' })
+    vim.keymap.set("n", "<localleader>xr", function() require("trouble").toggle("lsp_references") end, { desc = '[TR] LSP references' })
+  end,
+
+  todo_comments = function ()
+    vim.keymap.set("n", "<localleader>xc", ':TodoTrouble<cr>', { desc = '[TC] Toggle TODO comments' })
+  end,
+
 }
