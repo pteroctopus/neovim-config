@@ -97,7 +97,7 @@ return {
 
   nvim_tree = function()
     return {
-      { '<localleader>n', ':NvimTreeFindFileToggle<cr>', mode = 'n', desc = '[TR] Toggle nvim-tree' },
+      { '<localleader>n', ':NvimTreeFindFileToggle<cr>', mode = 'n', { silent = true, desc = '[TR] Toggle nvim-tree' } },
     }
   end,
 
@@ -161,7 +161,7 @@ return {
 
   nvim_navbuddy = function ()
     return {
-      {'<localleader>b', ':Navbuddy<cr>', mode = 'n', desc = '[NB] Navbuddy' },
+      {'<localleader>b', ':Navbuddy<cr>', mode = 'n', { silent = true, desc = '[NB] Navbuddy' } },
     }
   end,
 
