@@ -191,8 +191,14 @@ return {
     vim.keymap.set('n', '<localleader>gO', ':DiffviewOpen <c-r>+<cr><cr>', { desc = '[DV] Diff View Open with commit hash from " register', silent = true })
     vim.keymap.set('n', '<localleader>gh', ':DiffviewFileHistory<cr>', { desc = '[DV] Diff File History', silent = true })
     vim.keymap.set('n', '<localleader>gc', ':DiffviewClose<cr>', { desc = '[DV] Diff View Close', silent = true })
-    vim.keymap.set( "n", "<localleader>j", require('diffview.actions').select_next_entry, { desc = "[DV] Open diff for the next file" } )
-    vim.keymap.set( "n", "<localleader>k", require('diffview.actions').select_prev_entry, { desc = "[DV] Open diff for the previous file" } )
-  end
+    vim.keymap.set( 'n', '<localleader>j', require('diffview.actions').select_next_entry, { desc = '[DV] Open diff for the next file' } )
+    vim.keymap.set( 'n', '<localleader>k', require('diffview.actions').select_prev_entry, { desc = '[DV] Open diff for the previous file' } )
+  end,
+
+  context = function ()
+    vim.keymap.set('n', '[e', function()
+      require('treesitter-context').go_to_context()
+    end, { silent = true, desc = '[TSC] Previous context element'  })
+  end,
 
 }
