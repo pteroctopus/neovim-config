@@ -27,26 +27,21 @@ return {
     -- See `:help vim.keymap.set()`
     vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true, desc = '[B] Disable space in normal and visual modes' })
     -- Replace : and ;
-    vim.keymap.set('n', ';', ':')
-    vim.keymap.set('n', ':', ';')
+    vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
+    vim.keymap.set({ 'n', 'v' }, ':', ';', { noremap = true })
     -- Show full name and buffer of currently open file instead of short name
     vim.keymap.set('n', '<C-g>', '2<C-g>')
     -- Relative or absolute numbering settings
-    vim.keymap.set('n', '<leader>nu', function()
-      vim.o.relativenumber = not vim.o.relativenumber
-    end, { desc = '[B] Toggle relativenumber' })
+    vim.keymap.set('n', '<leader>nu', function() vim.o.relativenumber = not vim.o.relativenumber end, { desc = '[B] Toggle relativenumber' })
     -- Execute macro in register q from next line to the end of the file
-    vim.keymap.set('n', '<leader>q', ':.+1,$normal @q<cr>', { desc = '[B] Execute macro on rest of the lines. (.+1,$)'})
+    vim.keymap.set('n', '<leader>q', ':.+1,$normal @q<cr>', { silent = true, desc = '[B] Execute macro on rest of the lines. (.+1,$)'})
     -- Tab list and nolist
-    vim.keymap.set('n', '<leader>1', ':set list!<cr>', { desc = '[B] Toggle hidden characters'})
+    vim.keymap.set('n', '<leader>1', ':set list!<cr>', { silent = true, desc = '[B] Toggle hidden characters'})
     -- Buffer navigation
-    vim.keymap.set('n', '<leader>l', ':bnext<cr>', { desc = '[B] Next buffer' })
-    vim.keymap.set('n', '<leader>h', ':bprevious<cr>', { desc = '[B] Previous buffer' })
-    vim.keymap.set('n', '<leader>b', ':ls<cr>:buffer', { desc = '[B] List buffers' })
-    -- Search highlight off
-    vim.keymap.set('n', '<leader>n', ':noh<cr>', { desc = '[B] Search highlight off' })
+    vim.keymap.set('n', '<leader>l', ':bnext<cr>', { silent = true, desc = '[B] Next buffer' })
+    vim.keymap.set('n', '<leader>h', ':bprevious<cr>', { silent = true, desc = '[B] Previous buffer' })
     -- Remap Enter to also remove search highlight
-    vim.keymap.set('n', '<cr>', ':noh<cr><cr>')
+    vim.keymap.set('n', '<cr>', ':noh<cr><cr>', { silent = true })
     -- Remap Esc to also remove search highlight
     vim.keymap.set('n', '<esc>', ':noh<esc>', { silent = true })
     -- Remap for dealing with word wrap
@@ -152,7 +147,7 @@ return {
     vim.keymap.set('n', '<localleader>lv', require('telescope.builtin').lsp_dynamic_workspace_symbols, { buffer = bufnr, desc = '[L] Workspace Symbols' })
 
     -- See `:help K` for why this keymap
-    vim.keymap.set('n', '<localleader>lK', vim.lsp.buf.hover, { buffer = bufnr, desc = '[L] Hover Documentation' })
+    vim.keymap.set('n', '<localleader>lk', vim.lsp.buf.hover, { buffer = bufnr, desc = '[L] Hover Documentation' })
     vim.keymap.set('n', '<localleader>lS', vim.lsp.buf.signature_help, { buffer = bufnr, desc = '[L] Signature Documentation' })
 
     -- Lesser used LSP functionality
