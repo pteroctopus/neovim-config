@@ -29,6 +29,9 @@ return {
     -- Replace : and ;
     vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
     vim.keymap.set({ 'n', 'v' }, ':', ';', { noremap = true })
+    -- Search next/previous and center
+    -- vim.keymap.set('n', 'n', 'nzz', { silent = true, noremap = true })
+    -- vim.keymap.set('n', '<S-n>', '<S-n>zz', { silent = true, noremap = true })
     -- Show full name and buffer of currently open file instead of short name
     vim.keymap.set('n', '<C-g>', '2<C-g>')
     -- Relative or absolute numbering settings
