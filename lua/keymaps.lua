@@ -2,7 +2,7 @@
 local oil_toggle = function (path)
   if vim.bo.filetype == 'oil' then
     -- Close current oil buffer
-    vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), { force = true })
+    require('oil').close()
   else
     -- Open oil buffer
     require('oil').open(path)
