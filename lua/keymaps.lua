@@ -93,7 +93,7 @@ return {
           winblend = 10,
           previewer = false,
         })
-      end, mode = 'n', desc = '[T] Fuzzily search in current buffer]'
+      end, mode = 'n', desc = '[T] Fuzzily search in current buffer'
       },
     }
   end,
@@ -204,4 +204,8 @@ return {
     end, { silent = true, desc = '[TSC] Previous context element'  })
   end,
 
+  illuminate = function()
+    vim.keymap.set("n", "<localleader>ln", function() require("illuminate").goto_next_reference() end, { desc = '[I] Goto next reference'})
+    vim.keymap.set("n", "<localleader>lp", function() require("illuminate").goto_prev_reference() end, { desc = '[I] Goto previous reference'})
+  end,
 }
