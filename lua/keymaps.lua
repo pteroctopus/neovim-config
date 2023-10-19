@@ -1,17 +1,19 @@
 -- [[ Oil functions ]]
 local oil_toggle = function (path)
   if vim.bo.filetype == 'oil' then
-    -- Close current oil buffer
     require('oil').close()
   else
-    -- Open oil buffer
-    require('oil').open(path)
+    if path then
+      require('oil').open(path)
+    else
+      require('oil').open()
+    end
   end
 end
 
 -- Oil open path in current directory of the buffer
 local oil_toggle_curr_buf_path = function ()
-  oil_toggle(vim.fn.expand('%:h'))
+  oil_toggle()
 end
 
 -- Oil open path in current working directory
