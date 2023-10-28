@@ -17,6 +17,26 @@ return {
       }
     },
     winbar = {
+      lualine_y = {
+        function ()
+          local path = vim.api.nvim_buf_get_name(0)
+          if not path then return '0 B' end
+          local stat = vim.loop.fs_stat(path)
+          if not stat then return '0 B' end
+          local size = stat.size
+          if not size then return '0 B' end
+
+          if size < 1024 then
+            return string.format("%.0f B", size)
+          elseif size < 1024 * 1024 then
+            return string.format("%.2f KiB", size / 1024)
+          elseif size < 1024 * 1024 * 1024 then
+            return string.format("%.2f MiB", size / (1024 * 1024))
+          else
+            return string.format("%.2f GiB", size / (1024 * 1024 * 1024))
+          end
+        end
+      },
       lualine_b = {
         function()
           return '☰ ' .. vim.api.nvim_buf_line_count(0)
