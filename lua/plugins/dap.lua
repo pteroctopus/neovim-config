@@ -69,6 +69,8 @@ return {
           'python',
           -- [[ Bash ]]
           'bash',
+          -- [[ Go ]]
+          'delve',
         },
       },
     },

@@ -12,9 +12,10 @@ end
 
 local servers = {
   -- clangd = {},
-  -- gopls = {},
   -- rust_analyzer = {},
   -- tsserver = {},
+
+  gopls = {},
 
   -- Ansible language server
   ansiblels = {
