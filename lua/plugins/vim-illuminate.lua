@@ -10,6 +10,9 @@ return {
           vim.api.nvim_set_hl(0, "IlluminatedWordText",  { link = 'DiffChange' })
           vim.api.nvim_set_hl(0, "IlluminatedWordRead",  { link = 'DiffChange' })
           vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = 'DiffChange' })
+          -- vim.api.nvim_set_hl(0, "IlluminatedWordText",  { bg = '#2d2223' })
+          -- vim.api.nvim_set_hl(0, "IlluminatedWordRead",  {  bg = '#2d2223'  })
+          -- vim.api.nvim_set_hl(0, "IlluminatedWordWrite", {   bg = '#2d2223' })
         end
       })
       require('keymaps').illuminate()

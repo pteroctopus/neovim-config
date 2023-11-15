@@ -207,7 +207,11 @@ return {
   end,
 
   illuminate = function()
-    vim.keymap.set("n", "<localleader>ln", function() require("illuminate").goto_next_reference() end, { desc = '[I] Goto next reference'})
-    vim.keymap.set("n", "<localleader>lp", function() require("illuminate").goto_prev_reference() end, { desc = '[I] Goto previous reference'})
+    vim.keymap.set("n", "<localleader>ln", function() require("illuminate").goto_next_reference() end, { desc = '[I] Goto next reference' })
+    vim.keymap.set("n", "<localleader>lp", function() require("illuminate").goto_prev_reference() end, { desc = '[I] Goto previous reference' })
+  end,
+
+  vimtablemode = function()
+    vim.keymap.set("n", "<leader>tr", ':TableModeRealign<cr>', { desc = '[VTM] Format table' })
   end,
 }

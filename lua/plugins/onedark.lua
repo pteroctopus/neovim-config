@@ -43,6 +43,7 @@ return {
 
     highlights = {
       MatchParen = { fg = '#e8c88c', fmt = "bold" },
+      Visual = { bg = '#274964' },
     },
 
     style = 'darker',
