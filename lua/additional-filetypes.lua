@@ -24,6 +24,7 @@ vim.filetype.add({
 
     -- Terraform tfvars file set to filetype terraform because of problems with terraform-ls. Try in some time to
     -- disable this. Maybe the bug will be fixed
-    ['.*.tfvars'] = 'jproperties',
+    -- Seems to be fixed now: 2024-02-14
+    -- ['.*.tfvars'] = 'jproperties',
   }
 })

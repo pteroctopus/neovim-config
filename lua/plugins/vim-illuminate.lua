@@ -1,4 +1,5 @@
 return {
+  enabled = true,
   'RRethy/vim-illuminate',
 
   config = function(_, opts)
