@@ -1,4 +1,4 @@
 return {
-  dir = '/home/gnovak/github/faster.nvim',
-  opts = {}
+  'pteroctopus/faster.nvim',
+  opts = {},
 }
