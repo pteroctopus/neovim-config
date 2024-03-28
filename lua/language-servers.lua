@@ -15,6 +15,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
 
+  -- https://github.com/mrjosh/helm-ls
   helm_ls = {},
 
   gopls = {},
