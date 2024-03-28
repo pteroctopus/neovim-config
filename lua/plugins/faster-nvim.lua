@@ -1,4 +1,3 @@
 return {
-  'pteroctopus/faster.nvim',
-  opts = {},
+  'pteroctopus/faster.nvim'
 }
