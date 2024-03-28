@@ -15,6 +15,8 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
 
+  helm_ls = {},
+
   gopls = {},
 
   -- Ansible language server
