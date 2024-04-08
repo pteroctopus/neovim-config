@@ -10,6 +10,7 @@ return {
     -- UI for debugger
     {
       'rcarriga/nvim-dap-ui',
+      dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
       -- stylua: ignore
       keys = function () return keymaps.nvim_dap_ui(require('dapui')) end,
       opts = {},
