@@ -129,6 +129,7 @@ mason_lspconfig.setup_handlers {
 -- This autocommand will stop yamlls client if filetype is helm.
 -- This should be solved differently, yamlls shoudn't be started at all. Check if there is some option for that
 -- implemented in helm_ls at some point.
+
 vim.api.nvim_create_autocmd(
   'LspAttach',
   {

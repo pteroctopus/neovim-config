@@ -90,6 +90,9 @@ return {
       { '<localleader>sd', require('telescope.builtin').diagnostics, mode = 'n', desc = '[T] Search Diagnostics' },
       { '<localleader>sr', require('telescope.builtin').resume, mode = 'n', desc = '[T] Resume Picker' },
       { '<localleader>sk', require('telescope.builtin').keymaps, mode = 'n', desc = '[T] Search keymaps' },
+      { '<localleader>sq', require('telescope.builtin').quickfix, mode = 'n', desc = '[T] Search Quickfix list' },
+      { '<localleader>sR', require('telescope.builtin').registers, mode = 'n', desc = '[T] Search Registers' },
+      { '<localleader>sM', require('telescope.builtin').marks, mode = 'n', desc = '[T] Search Marks' },
       { '<localleader>/', function()
         require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,

@@ -4,7 +4,14 @@ return {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
+      --
+      -- -- Live grep args picker for telescope.nvim.
+      -- -- https://github.com/nvim-telescope/telescope-live-grep-args.nvim
+      -- {
+      --   "nvim-telescope/telescope-live-grep-args.nvim",
+      --   version = "^1.0.0",
+      -- },
     },
     opts = {
       defaults = {
@@ -18,6 +25,7 @@ return {
     },
     config = function (_, opts)
       pcall(require('telescope').load_extension, 'fzf')
+      -- pcall(require('telescope').load_extension, 'live_grep_args')
     end,
     keys = require('keymaps').telescope
   },
