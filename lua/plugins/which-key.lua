@@ -4,6 +4,6 @@ return {
   event = "VeryLazy",
   opts = {
     ---@type false | "classic" | "modern" | "helix"
-    preset = "helix",
+    preset = "modern",
   },
 }

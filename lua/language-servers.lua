@@ -142,21 +142,3 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
--- TODO: Workaround (2024-03-29): When yaml file is opened that should be handled by helm_ls language server.
--- Only helm_ls client should be started. Because helm template can be .yaml file yamlls will also be started.
--- This autocommand will stop yamlls client if filetype is helm.
--- This should be solved differently, yamlls shoudn't be started at all. Check if there is some option for that
--- implemented in helm_ls at some point.
-
-vim.api.nvim_create_autocmd(
-  'LspAttach',
-  {
-    callback = function(args)
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-      if vim.bo[args.buf].filetype == 'helm' and client.name == 'yamlls' then
-        vim.cmd('LspStop ' .. args.data.client_id)
-      end
-    end
-  }
-)
