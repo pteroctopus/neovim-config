@@ -20,6 +20,8 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
 
+  groovyls = {},
+
   -- https://github.com/mrjosh/helm-ls
   helm_ls = {},
 

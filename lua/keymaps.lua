@@ -75,6 +75,18 @@ return {
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = '[B] Next diagnostic'})
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = '[B] Open diagnostics floating window'})
     vim.keymap.set('n', '<leader>w', vim.diagnostic.setloclist, { desc = '[B] Open diagnostics buffer'})
+
+    -- Quickfix keymaps
+    -- Add current line to quickfix list
+    vim.keymap.set('n', '<localleader>ca', ':caddexpr expand("%") .. ":" .. line(".") ..  ":" .. getline(".")<cr>', { silent = true, desc = '[B] Add current line to quickfix list' })
+    -- Clear quickfix list
+    vim.keymap.set('n', '<localleader>cc', ':cexpr []<cr>', { silent = true, desc = '[B] Clear quickfix list' })
+    -- Quickfix list navigation
+    vim.keymap.set('n', '<localleader>cn', ':cnext<cr>', { silent = true, desc = '[B] Next item in quickfix list' })
+    vim.keymap.set('n', '<localleader>cp', ':cprevious<cr>', { silent = true, desc = '[B] Previous item in quickfix list' })
+    vim.keymap.set('n', '<localleader>cf', ':cfirst<cr>', { silent = true, desc = '[B] First item in quickfix list' })
+    vim.keymap.set('n', '<localleader>cl', ':clast<cr>', { silent = true, desc = '[B] Last item in quickfix list' })
+    vim.keymap.set('n', '<localleader>cm', ':setlocal modifiable noreadonly<cr>', { silent = true, desc = '[B] Disable readonly on quickfix list' })
   end,
 
   telescope = function()
