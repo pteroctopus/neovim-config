@@ -85,14 +85,14 @@ return {
     vim.keymap.set('n', '<localleader>ca', ':caddexpr expand("%") .. ":" .. line(".") ..  ":" .. getline(".")<cr>', { silent = true, desc = '[B] Add current line to quickfix list' })
     -- Clear quickfix list
     vim.keymap.set('n', '<localleader>cc', ':cexpr []<cr>', { silent = true, desc = '[B] Clear quickfix list' })
-    -- Save quickfix list to file
+    -- Save/Load quickfix list to file
     vim.keymap.set('n', '<localleader>cs', ':copen | w! .qf<cr>', { silent = true, desc = '[B] Save quickfix list to file' })
+    vim.keymap.set('n', '<localleader>cL', ':cfile .qf<cr>', { silent = true, desc = '[B] Load quickfix list from file' })
     -- Quickfix list navigation
     vim.keymap.set('n', '<localleader>cn', ':cnext<cr>', { silent = true, desc = '[B] Next item in quickfix list' })
     vim.keymap.set('n', '<localleader>cp', ':cprevious<cr>', { silent = true, desc = '[B] Previous item in quickfix list' })
     vim.keymap.set('n', '<localleader>cf', ':cfirst<cr>', { silent = true, desc = '[B] First item in quickfix list' })
     vim.keymap.set('n', '<localleader>cl', ':clast<cr>', { silent = true, desc = '[B] Last item in quickfix list' })
-    vim.keymap.set('n', '<localleader>cm', ':setlocal modifiable noreadonly<cr>', { silent = true, desc = '[B] Disable readonly on quickfix list' })
   end,
 
   telescope = function()
