@@ -22,6 +22,31 @@ local oil_toggle_cwd = function ()
 end
 
 
+local save_quickfix_to_file = function()
+  local file_path = '.qf'
+  -- Get the current quickfix list
+  local qf_list = vim.fn.getqflist()
+
+  -- Open the file for writing
+  local file = io.open(file_path, "w")
+  if not file then
+    print("Error: Could not open file " .. file_path)
+    return
+  end
+
+  -- Write each quickfix entry to the file in a valid format
+  for _, entry in ipairs(qf_list) do
+    if entry.valid == 1 then
+      local line = string.format("%s:%d:%d:%s\n", vim.fn.bufname(entry.bufnr), entry.lnum, entry.col, entry.text)
+      file:write(line)
+    end
+  end
+
+  -- Close the file
+  file:close()
+  print("Quickfix list saved to " .. file_path)
+end
+
 return {
 
   basic = function ()
@@ -86,7 +111,7 @@ return {
     -- Clear quickfix list
     vim.keymap.set('n', '<localleader>cc', ':cexpr []<cr>', { silent = true, desc = '[B] Clear quickfix list' })
     -- Save/Load quickfix list to file
-    vim.keymap.set('n', '<localleader>cs', ':copen | w! .qf<cr>', { silent = true, desc = '[B] Save quickfix list to file' })
+    vim.keymap.set('n', '<localleader>cs', save_quickfix_to_file, { noremap = true, silent = true, desc = '[B] Save quickfix list to file' })
     vim.keymap.set('n', '<localleader>cL', ':cfile .qf<cr>', { silent = true, desc = '[B] Load quickfix list from file' })
     -- Quickfix list navigation
     vim.keymap.set('n', '<localleader>cn', ':cnext<cr>', { silent = true, desc = '[B] Next item in quickfix list' })
