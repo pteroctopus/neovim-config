@@ -136,13 +136,14 @@ return {
       { '<localleader>sq', require('telescope.builtin').quickfix, mode = 'n', desc = '[T] Search Quickfix list' },
       { '<localleader>sR', require('telescope.builtin').registers, mode = 'n', desc = '[T] Search Registers' },
       { '<localleader>sM', require('telescope.builtin').marks, mode = 'n', desc = '[T] Search Marks' },
-      { '<localleader>/', function()
-        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end, mode = 'n', desc = '[T] Fuzzily search in current buffer'
-      },
+      { '<localleader>/', require('telescope.builtin').current_buffer_fuzzy_find, mode = 'n', desc = '[T] Fuzzily search in current buffer' },
+      -- { '<localleader>/', function()
+      --   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      --     winblend = 10,
+      --     previewer = true,
+      --   })
+      -- end, mode = 'n', desc = '[T] Fuzzily search in current buffer'
+      -- },
     }
   end,
 
@@ -225,9 +226,9 @@ return {
   end,
 
   trouble_nvim = function ()
-    vim.keymap.set('n', '<localleader>xx', function() require('trouble').toggle() end, { desc = '[TR] Toggle trouble' })
+    vim.keymap.set('n', '<localleader>xx', function() require('trouble').toggle('last') end, { desc = '[TR] Toggle trouble' })
     vim.keymap.set('n', '<localleader>xw', function() require('trouble').toggle('workspace_diagnostics') end, { desc = '[TR] Workspace diagnostics' })
-    vim.keymap.set('n', '<localleader>xd', function() require('trouble').toggle('document_diagnostics') end, { desc = '[TR] Document diagnostics' })
+    vim.keymap.set('n', '<localleader>xd', function() require('trouble').toggle('diagnostics') end, { desc = '[TR] Document diagnostics' })
     vim.keymap.set('n', '<localleader>xq', function() require('trouble').toggle('quickfix') end, { desc = '[TR] Quickfix list' })
     vim.keymap.set('n', '<localleader>xl', function() require('trouble').toggle('loclist') end, { desc = '[TR] Location list' })
     vim.keymap.set('n', '<localleader>xr', function() require('trouble').toggle('lsp_references') end, { desc = '[TR] LSP references' })

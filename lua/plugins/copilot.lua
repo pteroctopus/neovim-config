@@ -21,13 +21,13 @@ return {
     },
     suggestion = {
       enabled = true,
-      auto_trigger = true,
+      auto_trigger = false,
       hide_during_completion = true,
       debounce = 75,
       keymap = {
         accept = '<c-h>',
-        accept_word = false,
-        accept_line = false,
+        accept_line = '<c-b>',
+        accept_word = '<c-v>',
         next = '<c-j>',
         prev = '<c-k>',
         dismiss = '<c-l>',
