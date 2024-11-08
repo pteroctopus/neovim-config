@@ -1,6 +1,6 @@
 return {
   'folke/which-key.nvim',
-  enabled = true,
+  enabled = false,
   event = "VeryLazy",
   opts = {
     ---@type false | "classic" | "modern" | "helix"
