@@ -40,6 +40,7 @@ vim.cmd.colorscheme 'onedark'
 -- Neovide
 if vim.g.neovide then
   vim.o.guifont = "JetBrainsMono Nerd Font:h18"
+  -- vim.o.guifont = "0xProto Nerd Font:h18"
 end
 
 -- Print location from which neovim configuration was loaded

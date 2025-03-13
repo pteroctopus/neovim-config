@@ -8,7 +8,15 @@ return {
   opts = {
     -- Add languages to be installed here that you want installed for treesitter
     auto_install = true,
-    ensure_installed = 'all',
+    ensure_installed = {
+      'angular', 'awk', 'bash', 'c', 'c_sharp', 'cmake', 'cpp', 'css', 'csv', 'diff', 'dockerfile', 'dtd', 'editorconfig',
+      'fish', 'git_config', 'git_rebase', 'gitattributes', 'gitcommit', 'gitignore', 'go', 'goctl', 'gomod', 'gosum',
+      'gotmpl', 'gowork', 'gpg', 'graphql', 'groovy', 'hcl', 'helm', 'hjson', 'html', 'http', 'hurl', 'java', 'javascript',
+      'jq', 'json', 'json5', 'jsonc', 'jsonnet', 'kotlin', 'latex', 'lua', 'luadoc', 'make', 'markdown', 'markdown_inline',
+      'nginx', 'nix', 'norg', 'org', 'passwd', 'pem', 'php', 'php_only', 'phpdoc', 'powershell', 'printf', 'promql',
+      'properties', 'proto', 'python', 'regex', 'ruby', 'rust', 'scala', 'sql', 'ssh_config', 'strace', 'terraform', 'tmux',
+      'toml', 'tsv', 'tsx', 'typescript', 'vim', 'vimdoc', 'xml', 'yaml', 'zathurarc', 'zig'
+    },
     --ignore_install = { 'terraform' },
 
     highlight = { enable = true },
