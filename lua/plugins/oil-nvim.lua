@@ -1,34 +1,46 @@
-require('keymaps').oil()
+-- [[ Oil functions ]]
+local oil_toggle = function (path)
+  if vim.bo.filetype == 'oil' then
+    require('oil').close()
+  else
+    if path then
+      require('oil').open(path)
+    else
+      require('oil').open()
+    end
+  end
+end
+
+-- Oil open path in current directory of the buffer
+local oil_toggle_curr_buf_path = function ()
+  oil_toggle()
+end
+
+-- Oil open path in current working directory
+local oil_toggle_cwd = function ()
+  oil_toggle('.')
+end
+
+vim.keymap.set('n', '<localleader>o', oil_toggle_curr_buf_path, { desc = '[O] Oil current buffer path' })
+vim.keymap.set('n', '<localleader>O', oil_toggle_cwd, { desc = '[O] Oil cwd path' })
 
 return {
   'stevearc/oil.nvim',
+  ---@module 'oil'
+  ---@type oil.SetupOpts
   opts = {
     default_file_explorer = true,
     columns = {
+      -- 'permissions',
+      -- 'mtime',
+      'size',
       'icon',
-      --'permissions',
-      --'size',
-      --'mtime',
     },
-    -- [[ Default keymaps]]
-    -- keymaps = {
-    --   ['g?'] = 'actions.show_help',
-    --   ['<CR>'] = 'actions.select',
-    --   ['<C-s>'] = 'actions.select_vsplit',
-    --   ['<C-h>'] = 'actions.select_split',
-    --   ['<C-t>'] = 'actions.select_tab',
-    --   ['<C-p>'] = 'actions.preview',
-    --   ['<C-c>'] = 'actions.close',
-    --   ['<C-l>'] = 'actions.refresh',
-    --   ['-'] = 'actions.parent',
-    --   ['_'] = 'actions.open_cwd',
-    --   ['`'] = 'actions.cd',
-    --   ['~'] = 'actions.tcd',
-    --   ['gs'] = 'actions.change_sort',
-    --   ['gx'] = 'actions.open_external',
-    --   ['g.'] = 'actions.toggle_hidden',
-    -- },
   },
   -- Optional dependencies
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = {
+    "echasnovski/mini.icons"
+  },
+  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  lazy = false,
 }

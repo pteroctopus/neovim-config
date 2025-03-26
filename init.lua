@@ -6,7 +6,10 @@
 -- Enabled experimantal lua module loader befause of slowness of startup 1-5 seconds of customized neovim on corporate macos laptop.
 -- This is for testing purposes to see if it helps.
 -- Cause of slowness in unknown.
-vim.loader.enable()
+-- vim.loader.enable()
+
+-- Disable LSP logs
+vim.lsp.set_log_level("off")
 
 -- Leader keys setup
 -- (Must be before plugins are loaded)
@@ -16,7 +19,15 @@ vim.g.maplocalleader = ' '
 -- Install package manager and plugins
 require('package-manager')
 -- Auto initialize plugins and configure them
-require('lazy').setup('plugins')
+require('lazy').setup({
+  { import = 'plugins' },
+  { import = 'plugins/language_support' },
+  { import = 'plugins/nav_edit' },
+  { import = 'plugins/ui' },
+  { import = 'plugins/git' },
+  { import = 'plugins/copilot' },
+  { import = 'plugins/debugging' },
+})
 -- Changes to default neovim options
 require('options')
 -- Abbreviations
@@ -27,8 +38,6 @@ require('keymaps').basic()
 require('yank-highlight')
 -- Automatic window split resize
 require('auto-split-resize')
--- LSP on attach configuration
-require('language-servers')
 -- Setup of additional filetypes
 require('additional-filetypes')
 -- Setup custom text objects
