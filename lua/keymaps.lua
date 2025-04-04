@@ -30,8 +30,8 @@ return {
     -- See `:help vim.keymap.set()`
     vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true, desc = '[B] Disable space in normal and visual modes' })
     -- Replace : and ;
-    vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
-    vim.keymap.set({ 'n', 'v' }, ':', ';', { noremap = true })
+    -- vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
+    -- vim.keymap.set({ 'n', 'v' }, ':', ';', { noremap = true })
     -- Search next/previous and center
     -- vim.keymap.set('n', 'n', 'nzz', { silent = true, noremap = true })
     -- vim.keymap.set('n', '<S-n>', '<S-n>zz', { silent = true, noremap = true })
@@ -44,8 +44,8 @@ return {
     -- Tab list and nolist
     -- vim.keymap.set('n', '<leader>1', ':set list!<cr>', { silent = true, desc = '[B] Toggle hidden characters'})
     -- Buffer navigation
-    vim.keymap.set('n', '<leader>2', ':bnext<cr>', { silent = true, desc = '[B] Next buffer' })
-    vim.keymap.set('n', '<leader>1', ':bprevious<cr>', { silent = true, desc = '[B] Previous buffer' })
+    vim.keymap.set('n', '<C-n>', ':bnext<cr>', { silent = true, desc = '[B] Next buffer' })
+    vim.keymap.set('n', '<C-p>', ':bprevious<cr>', { silent = true, desc = '[B] Previous buffer' })
     -- Remap Enter to also remove search highlight
     vim.keymap.set('n', '<cr>', ':noh<cr><cr>', { silent = true })
     -- Remap Esc to also remove search highlight
