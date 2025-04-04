@@ -27,6 +27,6 @@ return {
     },
   },
   keys = {
-    { "<localleader>xc", "<cmd>TodoTrouble<cr>", desc = "[TC] Toggle Todo comments", silent = true, },
+    { "<leader>xc", "<cmd>TodoTrouble<cr>", desc = "[TC] Toggle Todo comments", silent = true, },
   },
 }

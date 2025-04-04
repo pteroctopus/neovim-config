@@ -13,8 +13,8 @@ vim.lsp.set_log_level("off")
 
 -- Leader keys setup
 -- (Must be before plugins are loaded)
-vim.g.mapleader = '\t'
-vim.g.maplocalleader = ' '
+vim.g.mapleader = ' '
+-- vim.g.maplocalleader = ' '
 
 -- Install package manager and plugins
 require('package-manager')

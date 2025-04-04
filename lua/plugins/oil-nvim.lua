@@ -21,8 +21,8 @@ local oil_toggle_cwd = function ()
   oil_toggle('.')
 end
 
-vim.keymap.set('n', '<localleader>o', oil_toggle_curr_buf_path, { desc = '[O] Oil current buffer path' })
-vim.keymap.set('n', '<localleader>O', oil_toggle_cwd, { desc = '[O] Oil cwd path' })
+vim.keymap.set('n', '<leader>o', oil_toggle_curr_buf_path, { desc = '[O] Oil current buffer path' })
+vim.keymap.set('n', '<leader>O', oil_toggle_cwd, { desc = '[O] Oil cwd path' })
 
 return {
   'stevearc/oil.nvim',

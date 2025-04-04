@@ -41,6 +41,6 @@ return {
     },
   },
   keys = {
-      {'<localleader>b', ':Navbuddy<cr>', mode = 'n', { silent = true, desc = '[NB] Navbuddy' } },
+      {'<leader>b', ':Navbuddy<cr>', desc = '[NB] Navbuddy' },
   },
 }

@@ -9,8 +9,8 @@ return {
   end,
 
   keys = {
-    { "<localleader>ln", function() require("illuminate").goto_next_reference() end, desc = '[I] Goto next reference' },
-    { "<localleader>lp", function() require("illuminate").goto_prev_reference() end, desc = '[I] Goto previous reference' },
+    { "<leader>ln", function() require("illuminate").goto_next_reference() end, desc = '[I] Goto next reference' },
+    { "<leader>lp", function() require("illuminate").goto_prev_reference() end, desc = '[I] Goto previous reference' },
   },
 
   opts = {

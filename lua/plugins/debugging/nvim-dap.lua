@@ -12,8 +12,8 @@ return {
       dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
       -- stylua: ignore
       keys = {
-        { '<localleader>du', function() require('dapui').toggle({}) end, desc = '[D] Dap UI' },
-        { '<localleader>de', function() require('dapui').eval() end,     desc = '[D] Eval',  mode = { 'n', 'v' } },
+        { '<leader>du', function() require('dapui').toggle({}) end, desc = '[D] Dap UI' },
+        { '<leader>de', function() require('dapui').eval() end,     desc = '[D] Eval',  mode = { 'n', 'v' } },
       },
       opts = {},
       config = function(_, opts)
@@ -45,8 +45,8 @@ return {
       optional = true,
       opts = {
         defaults = {
-          ['<localleader>d'] = { name = '+debug' },
-          ['<localleader>da'] = { name = '+adapters' },
+          ['<leader>d'] = { name = '+debug' },
+          ['<leader>da'] = { name = '+adapters' },
         },
       },
     },
@@ -81,22 +81,22 @@ return {
 
   -- stylua: ignore
   keys = {
-    { '<localleader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = '[D] Breakpoint Condition' },
-    { '<localleader>db', function() require('dap').toggle_breakpoint() end, desc = '[D] Toggle Breakpoint' },
-    { '<localleader>dc', function() require('dap').continue() end, desc = '[D] Continue' },
-    { '<localleader>dC', function() require('dap').run_to_cursor() end, desc = '[D] Run to Cursor' },
-    { '<localleader>dg', function() require('dap').goto_() end, desc = '[D] Go to line (no execute)' },
-    { '<localleader>di', function() require('dap').step_into() end, desc = '[D] Step Into' },
-    { '<localleader>dj', function() require('dap').down() end, desc = '[D] Down' },
-    { '<localleader>dk', function() require('dap').up() end, desc = '[D] Up' },
-    { '<localleader>dl', function() require('dap').run_last() end, desc = '[D] Run Last' },
-    { '<localleader>dO', function() require('dap').step_out() end, desc = '[D] Step Out' },
-    { '<localleader>do', function() require('dap').step_over() end, desc = '[D] Step Over' },
-    { '<localleader>dp', function() require('dap').pause() end, desc = '[D] Pause' },
-    { '<localleader>dr', function() require('dap').repl.toggle() end, desc = '[D] Toggle REPL' },
-    { '<localleader>ds', function() require('dap').session() end, desc = '[D] Session' },
-    { '<localleader>dt', function() require('dap').terminate() end, desc = '[D] Terminate' },
-    { '<localleader>dw', function() require('dap.ui.widgets').hover() end, desc = '[D] Widgets' },
+    { '<leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = '[D] Breakpoint Condition' },
+    { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = '[D] Toggle Breakpoint' },
+    { '<leader>dc', function() require('dap').continue() end, desc = '[D] Continue' },
+    { '<leader>dC', function() require('dap').run_to_cursor() end, desc = '[D] Run to Cursor' },
+    { '<leader>dg', function() require('dap').goto_() end, desc = '[D] Go to line (no execute)' },
+    { '<leader>di', function() require('dap').step_into() end, desc = '[D] Step Into' },
+    { '<leader>dj', function() require('dap').down() end, desc = '[D] Down' },
+    { '<leader>dk', function() require('dap').up() end, desc = '[D] Up' },
+    { '<leader>dl', function() require('dap').run_last() end, desc = '[D] Run Last' },
+    { '<leader>dO', function() require('dap').step_out() end, desc = '[D] Step Out' },
+    { '<leader>do', function() require('dap').step_over() end, desc = '[D] Step Over' },
+    { '<leader>dp', function() require('dap').pause() end, desc = '[D] Pause' },
+    { '<leader>dr', function() require('dap').repl.toggle() end, desc = '[D] Toggle REPL' },
+    { '<leader>ds', function() require('dap').session() end, desc = '[D] Session' },
+    { '<leader>dt', function() require('dap').terminate() end, desc = '[D] Terminate' },
+    { '<leader>dw', function() require('dap.ui.widgets').hover() end, desc = '[D] Widgets' },
   },
 
   config = function()

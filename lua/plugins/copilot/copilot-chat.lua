@@ -1,6 +1,6 @@
-vim.keymap.set('n', '<localleader>ho', function() require("CopilotChat").open() end, { desc = "[CopilotChat] Open Chat" })
+vim.keymap.set('n', '<leader>ho', function() require("CopilotChat").open() end, { desc = "[CopilotChat] Open Chat" })
 
-vim.keymap.set('n', "<localleader>hq",
+vim.keymap.set('n', "<leader>hq",
   function()
     local input = vim.fn.input("Quick Chat: ")
     if input ~= "" then
@@ -21,10 +21,10 @@ return {
   build = "make tiktoken",        -- Only on MacOS or Linux
   opts = {},
   keys = {
-    { '<localleader>ho', function() require("CopilotChat").open() end, desc = "[CopilotChat] Open Chat" },
+    { '<leader>ho', function() require("CopilotChat").open() end, desc = "[CopilotChat] Open Chat" },
 
     {
-      "<localleader>hq",
+      "<leader>hq",
       function()
         local input = vim.fn.input("Quick Chat: ")
         if input ~= "" then

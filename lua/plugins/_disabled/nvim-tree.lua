@@ -14,6 +14,6 @@ return {
     }
   },
   keys = {
-      { '<localleader>n', ':NvimTreeFindFileToggle<cr>', mode = 'n', { silent = true, desc = '[TR] Toggle nvim-tree' } },
+      { '<leader>n', ':NvimTreeFindFileToggle<cr>', mode = 'n', { silent = true, desc = '[TR] Toggle nvim-tree' } },
   },
 }

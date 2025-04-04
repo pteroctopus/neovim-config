@@ -4,10 +4,10 @@ return {
   lazy = true,
   event = 'VeryLazy',
   keys = {
-    { '<localleader>gp', ':Gitsigns prev_hunk<cr>',                 desc = '[GS] Go to Previous Hunk', silent = true },
-    { '<localleader>gn', ':Gitsigns next_hunk<cr>',                 desc = '[GS] Go to Next Hunk',     silent = true },
-    { '<localleader>gP', ':Gitsigns preview_hunk<cr>',              desc = '[GS] Preview Hunk',        silent = true },
-    { '<localleader>gb', ':Gitsigns toggle_current_line_blame<cr>', desc = '[GS] Current line blame',  silent = true },
+    { '<leader>gp', ':Gitsigns prev_hunk<cr>',                 desc = '[GS] Go to Previous Hunk', silent = true },
+    { '<leader>gn', ':Gitsigns next_hunk<cr>',                 desc = '[GS] Go to Next Hunk',     silent = true },
+    { '<leader>gP', ':Gitsigns preview_hunk<cr>',              desc = '[GS] Preview Hunk',        silent = true },
+    { '<leader>gb', ':Gitsigns toggle_current_line_blame<cr>', desc = '[GS] Current line blame',  silent = true },
   },
   opts = {
     -- See `:help gitsigns.txt`
