@@ -8,7 +8,7 @@ return {
     opts = vim.tbl_deep_extend('keep', opts or {}, {
       window = {
         config = {
-          width = 50,
+          width = 70,
         },
         delay = 300,
       },
