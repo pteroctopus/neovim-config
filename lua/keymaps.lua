@@ -42,7 +42,7 @@ return {
     -- Execute macro in register q from next line to the end of the file
     vim.keymap.set('n', '<leader>q', ':.+1,$normal @q<cr>', { silent = true, desc = '[B] Execute macro on rest of the lines. (.+1,$)'})
     -- Tab list and nolist
-    -- vim.keymap.set('n', '<leader>1', ':set list!<cr>', { silent = true, desc = '[B] Toggle hidden characters'})
+    vim.keymap.set('n', '<leader>1', ':set list!<cr>', { silent = true, desc = '[B] Toggle hidden characters'})
     -- Buffer navigation
     vim.keymap.set('n', '<C-n>', ':bnext<cr>', { silent = true, desc = '[B] Next buffer' })
     vim.keymap.set('n', '<C-p>', ':bprevious<cr>', { silent = true, desc = '[B] Previous buffer' })
