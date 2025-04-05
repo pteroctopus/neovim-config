@@ -3,6 +3,7 @@ vim.keymap.set('n', '[e', function()
 end, { silent = true, desc = '[TSC] Previous context element' })
 
 return {
+  enabled = true,
   'nvim-treesitter/nvim-treesitter-context',
   opts = {
     enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)

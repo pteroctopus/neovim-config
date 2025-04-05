@@ -1,5 +1,13 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	lazy = true,
+	cmd = {
+		"MasonToolsClean",
+		"MasonToolsInstall",
+		"MasonToolsInstallSync",
+		"MasonToolsUpdate",
+		"MasonToolsUpdateSync",
+	},
 	opts = {
 		ensure_installed = {
 			"black",
@@ -7,8 +15,8 @@ return {
 			"prettier",
 			"prettierd",
 			"stylua",
-      "shfmt",
-      "hclfmt"
+			"shfmt",
+			"hclfmt",
 		},
 	},
 	dependencies = {
