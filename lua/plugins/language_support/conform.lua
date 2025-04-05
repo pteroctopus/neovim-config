@@ -1,8 +1,10 @@
 return {
   "stevearc/conform.nvim",
   lazy = true,
-  event = { "BufWritePre" },
   cmd = { "ConformInfo" },
+  dependecies = {
+    "mason.nvim",
+  },
   keys = {
     {
       -- Customize or remove this keymap to your liking

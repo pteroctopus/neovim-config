@@ -1,5 +1,7 @@
 return {
   enabled = true,
+  lazy = true,
+  event = "VeryLazy",
   -- Set lualine as statusline
   "nvim-lualine/lualine.nvim",
   -- See `:help lualine.txt`
@@ -38,15 +40,15 @@ return {
         },
       },
       lualine_c = {
-        function()
-          local navic = require("nvim-navic")
-          local bufnr = vim.api.nvim_get_current_buf()
-          if navic.is_available(bufnr) then
-            return navic.get_location({}, bufnr)
-          else
-            return ""
-          end
-        end,
+        -- function()
+        --   local navic = require("nvim-navic")
+        --   local bufnr = vim.api.nvim_get_current_buf()
+        --   if navic.is_available(bufnr) then
+        --     return navic.get_location({}, bufnr)
+        --   else
+        --     return ""
+        --   end
+        -- end,
       },
       lualine_x = {
         function()

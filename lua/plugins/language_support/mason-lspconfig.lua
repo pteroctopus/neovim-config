@@ -189,6 +189,7 @@ local handlers = {
 
 return {
   "williamboman/mason-lspconfig.nvim",
+  lazy = true,
   opts = {
     ensure_installed = vim.tbl_keys(servers),
     handlers = handlers,

@@ -1,6 +1,6 @@
 return {
   "folke/neodev.nvim",
-  -- lazy = true,
+  lazy = true,
   config = true,
   opts = {},
   priority = 0,
