@@ -1,6 +1,6 @@
 return {
-  'rafcamlet/nvim-luapad',
+  "rafcamlet/nvim-luapad",
   lazy = true,
-  cmd = 'Luapad',
-  opts = {}
+  cmd = "Luapad",
+  opts = {},
 }

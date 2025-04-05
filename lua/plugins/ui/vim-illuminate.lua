@@ -1,6 +1,6 @@
 return {
   enabled = true,
-  'RRethy/vim-illuminate',
+  "RRethy/vim-illuminate",
   lazy = true,
   event = "CursorHold",
 
@@ -9,17 +9,29 @@ return {
   end,
 
   keys = {
-    { "<leader>ln", function() require("illuminate").goto_next_reference() end, desc = '[I] Goto next reference' },
-    { "<leader>lp", function() require("illuminate").goto_prev_reference() end, desc = '[I] Goto previous reference' },
+    {
+      "<leader>ln",
+      function()
+        require("illuminate").goto_next_reference()
+      end,
+      desc = "[I] Goto next reference",
+    },
+    {
+      "<leader>lp",
+      function()
+        require("illuminate").goto_prev_reference()
+      end,
+      desc = "[I] Goto previous reference",
+    },
   },
 
   opts = {
 
     -- providers: provider used to get references in the buffer, ordered by priority
     providers = {
-      'lsp',
-      'treesitter',
-      'regex',
+      "lsp",
+      "treesitter",
+      "regex",
     },
     -- delay: delay in milliseconds
     delay = 100,
@@ -29,10 +41,10 @@ return {
     filetype_overrides = {},
     -- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
     filetypes_denylist = {
-      'dirbuf',
-      'dirvish',
-      'fugitive',
-      'oil',
+      "dirbuf",
+      "dirvish",
+      "fugitive",
+      "oil",
     },
     -- filetypes_allowlist: filetypes to illuminate, this is overridden by filetypes_denylist
     -- You must set filetypes_denylist = {} to override the defaults to allow filetypes_allowlist to take effect
@@ -65,7 +77,9 @@ return {
     -- should_enable: a callback that overrides all other settings to
     -- enable/disable illumination. This will be called a lot so don't do
     -- anything expensive in it.
-    should_enable = function(bufnr) return true end,
+    should_enable = function(bufnr)
+      return true
+    end,
     -- case_insensitive_regex: sets regex case sensitivity
     case_insensitive_regex = false,
   },

@@ -1,6 +1,6 @@
 return {
   -- Theme inspired by Atom
-  'navarasu/onedark.nvim',
+  "navarasu/onedark.nvim",
   priority = 1000,
   opts = {
     -- colors = {
@@ -17,7 +17,7 @@ return {
       bg2 = "#181c1f",
       --bg3 = "#191a20",
       --bg3 = '#1f2329',
-      bg3 = '#172a3a',
+      bg3 = "#172a3a",
       bg_d = "#0c0e10",
       bg_blue = "#61afef",
       bg_yellow = "#e8c88c",
@@ -42,14 +42,14 @@ return {
     },
 
     highlights = {
-      MatchParen = { fg = '#e8c88c', fmt = "bold" },
-      Visual = { bg = '#274964' },
-      IlluminatedWordText =  { bg = '#172a3a' },
-      IlluminatedWordRead = {  bg = '#172a3a'  },
-      IlluminatedWordWrite = {   bg = '#172a3a' },
-      TreesitterContext = { bg = '#172a3a' },
+      MatchParen = { fg = "#e8c88c", fmt = "bold" },
+      Visual = { bg = "#274964" },
+      IlluminatedWordText = { bg = "#172a3a" },
+      IlluminatedWordRead = { bg = "#172a3a" },
+      IlluminatedWordWrite = { bg = "#172a3a" },
+      TreesitterContext = { bg = "#172a3a" },
     },
 
-    style = 'darker',
-  }
+    style = "darker",
+  },
 }

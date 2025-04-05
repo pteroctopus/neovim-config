@@ -1,11 +1,11 @@
 return {
-  'chrisbra/unicode.vim',
+  "chrisbra/unicode.vim",
   lazy = true,
   cmd = {
-    'UnicodeCache',
-    'UnicodeDownload',
-    'UnicodeName',
-    'UnicodeSearch',
-    'UnicodeTable',
+    "UnicodeCache",
+    "UnicodeDownload",
+    "UnicodeName",
+    "UnicodeSearch",
+    "UnicodeTable",
   },
 }

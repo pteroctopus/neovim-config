@@ -13,38 +13,38 @@ vim.lsp.set_log_level("off")
 
 -- Leader keys setup
 -- (Must be before plugins are loaded)
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 -- vim.g.maplocalleader = ' '
 
 -- Install package manager and plugins
-require('package-manager')
+require("package-manager")
 -- Auto initialize plugins and configure them
-require('lazy').setup({
-  { import = 'plugins' },
-  { import = 'plugins/language_support' },
-  { import = 'plugins/nav_edit' },
-  { import = 'plugins/ui' },
-  { import = 'plugins/git' },
-  { import = 'plugins/copilot' },
-  { import = 'plugins/debugging' },
+require("lazy").setup({
+  { import = "plugins" },
+  { import = "plugins/language_support" },
+  { import = "plugins/nav_edit" },
+  { import = "plugins/ui" },
+  { import = "plugins/git" },
+  { import = "plugins/copilot" },
+  { import = "plugins/debugging" },
 })
 -- Changes to default neovim options
-require('options')
+require("options")
 -- Abbreviations
-require('abbreviations')
+require("abbreviations")
 -- Custom keymaps
-require('keymaps').basic()
+require("keymaps").basic()
 -- Highlight on yank text object
-require('yank-highlight')
+require("yank-highlight")
 -- Automatic window split resize
-require('auto-split-resize')
+require("auto-split-resize")
 -- Setup of additional filetypes
-require('additional-filetypes')
+require("additional-filetypes")
 -- Setup custom text objects
-require('text-objects')
+require("text-objects")
 
 -- Chosen theme
-vim.cmd.colorscheme 'onedark'
+vim.cmd.colorscheme("onedark")
 
 -- Neovide
 if vim.g.neovide then

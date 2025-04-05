@@ -1,9 +1,8 @@
 return {
-  'kylechui/nvim-surround',
-  version = '*',   -- Use for stability; omit to use `main` branch for the latest features
+  "kylechui/nvim-surround",
+  version = "*", -- Use for stability; omit to use `main` branch for the latest features
   lazy = true,
-  event = 'CursorHold',
+  event = "CursorHold",
   config = true,
-  opts = {
-  },
+  opts = {},
 }

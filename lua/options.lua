@@ -12,19 +12,19 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Search/Replace preview window
-vim.o.inccommand = 'split'
+vim.o.inccommand = "split"
 
 -- Set characters to used when ```set list``` is on
-vim.o.listchars = 'tab:»·,trail:·,extends:>,precedes:<,eol:$,space:·'
+vim.o.listchars = "tab:»·,trail:·,extends:>,precedes:<,eol:$,space:·"
 
 -- Disable welcome message
-vim.o.shortmess = vim.o.shortmess .. 'I'
+vim.o.shortmess = vim.o.shortmess .. "I"
 
 -- Make line numbers default
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -34,13 +34,13 @@ vim.o.undofile = true
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Set colorscheme
 vim.o.termguicolors = true
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- Set relative numbers
 vim.o.relativenumber = true
@@ -48,15 +48,15 @@ vim.o.relativenumber = true
 -- Space instead of Tab
 vim.o.expandtab = true
 vim.o.tabstop = 2
-vim.o.shiftwidth=2
+vim.o.shiftwidth = 2
 
 -- Lines
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
-vim.o.colorcolumn = '120'
+vim.o.colorcolumn = "120"
 
 -- Tab and wrap settings
-vim.o.breakindentopt = 'shift:2'
+vim.o.breakindentopt = "shift:2"
 
 -- Fold settings
 vim.o.foldlevel = 10

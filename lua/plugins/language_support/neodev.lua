@@ -1,9 +1,7 @@
-return
-{
-  'folke/neodev.nvim',
+return {
+  "folke/neodev.nvim",
   -- lazy = true,
   config = true,
-  opts = {
-  },
+  opts = {},
   priority = 0,
 }

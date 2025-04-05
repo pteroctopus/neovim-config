@@ -1,13 +1,13 @@
 return {
-  'williamboman/mason.nvim',
+  "williamboman/mason.nvim",
   lazy = true,
   cmd = {
-    'Mason',
-    'MasonInstall',
-    'MasonLog',
-    'MasonUninstall',
-    'MasonUninstallAll',
-    'MasonUpdate',
+    "Mason",
+    "MasonInstall",
+    "MasonLog",
+    "MasonUninstall",
+    "MasonUninstallAll",
+    "MasonUpdate",
   },
   config = true,
 }

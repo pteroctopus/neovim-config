@@ -1,8 +1,8 @@
 return {
-  'rbong/vim-flog',
+  "rbong/vim-flog",
   lazy = true,
-  cmd = 'Flog',
+  cmd = "Flog",
   dependencies = {
-    'tpope/vim-fugitive',
-  }
+    "tpope/vim-fugitive",
+  },
 }

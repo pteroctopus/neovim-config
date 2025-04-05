@@ -1,5 +1,5 @@
 return {
-  'chrisbra/Colorizer',
+  "chrisbra/Colorizer",
   lazy = true,
-  cmd = 'ColorToggle',
+  cmd = "ColorToggle",
 }

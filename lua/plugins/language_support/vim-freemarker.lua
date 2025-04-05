@@ -1,5 +1,5 @@
 return {
-  'https://github.com/andreshazard/vim-freemarker.git',
+  "https://github.com/andreshazard/vim-freemarker.git",
   lazy = true,
-  ft = 'ftl',
+  ft = "ftl",
 }

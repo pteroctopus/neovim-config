@@ -1,8 +1,8 @@
 return {
-  'wintermute-cell/gitignore.nvim',
+  "wintermute-cell/gitignore.nvim",
   lazy = true,
-  cmd = 'Gitignore',
+  cmd = "Gitignore",
   dependencies = {
-    'nvim-telescope/telescope.nvim'
+    "nvim-telescope/telescope.nvim",
   },
 }

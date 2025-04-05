@@ -1,5 +1,5 @@
 return {
-  'https://github.com/godlygeek/tabular',
+  "https://github.com/godlygeek/tabular",
   lazy = true,
-  cmd = 'Tabularize',
+  cmd = "Tabularize",
 }

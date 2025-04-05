@@ -1,11 +1,11 @@
 return {
-  'echasnovski/mini.clue',
-  version = '*',
+  "echasnovski/mini.clue",
+  version = "*",
   lazy = true,
-  event = 'CursorHold',
+  event = "CursorHold",
   opts = function(_, opts)
-    local miniclue = require('mini.clue')
-    opts = vim.tbl_deep_extend('keep', opts or {}, {
+    local miniclue = require("mini.clue")
+    opts = vim.tbl_deep_extend("keep", opts or {}, {
       window = {
         config = {
           width = 70,
@@ -23,36 +23,36 @@ return {
       },
       triggers = {
         -- Leader triggers
-        { mode = 'n', keys = '<Leader>' },
-        { mode = 'x', keys = '<Leader>' },
-        { mode = 'n', keys = '<LocalLeader>' },
-        { mode = 'x', keys = '<LocalLeader>' },
+        { mode = "n", keys = "<Leader>" },
+        { mode = "x", keys = "<Leader>" },
+        { mode = "n", keys = "<LocalLeader>" },
+        { mode = "x", keys = "<LocalLeader>" },
 
         -- Built-in completion
-        { mode = 'i', keys = '<C-x>' },
+        { mode = "i", keys = "<C-x>" },
 
         -- `g` key
-        { mode = 'n', keys = 'g' },
-        { mode = 'x', keys = 'g' },
+        { mode = "n", keys = "g" },
+        { mode = "x", keys = "g" },
 
         -- Marks
-        { mode = 'n', keys = "'" },
-        { mode = 'n', keys = '`' },
-        { mode = 'x', keys = "'" },
-        { mode = 'x', keys = '`' },
+        { mode = "n", keys = "'" },
+        { mode = "n", keys = "`" },
+        { mode = "x", keys = "'" },
+        { mode = "x", keys = "`" },
 
         -- Registers
-        { mode = 'n', keys = '"' },
-        { mode = 'x', keys = '"' },
-        { mode = 'i', keys = '<C-r>' },
-        { mode = 'c', keys = '<C-r>' },
+        { mode = "n", keys = '"' },
+        { mode = "x", keys = '"' },
+        { mode = "i", keys = "<C-r>" },
+        { mode = "c", keys = "<C-r>" },
 
         -- Window commands
-        { mode = 'n', keys = '<C-w>' },
+        { mode = "n", keys = "<C-w>" },
 
         -- `z` key
-        { mode = 'n', keys = 'z' },
-        { mode = 'x', keys = 'z' },
+        { mode = "n", keys = "z" },
+        { mode = "x", keys = "z" },
       },
     })
     return opts
