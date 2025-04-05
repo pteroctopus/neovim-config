@@ -40,15 +40,17 @@ return {
         },
       },
       lualine_c = {
-        -- function()
-        --   local navic = require("nvim-navic")
-        --   local bufnr = vim.api.nvim_get_current_buf()
-        --   if navic.is_available(bufnr) then
-        --     return navic.get_location({}, bufnr)
-        --   else
-        --     return ""
-        --   end
-        -- end,
+        function()
+          local bufnr = vim.api.nvim_get_current_buf()
+          local clients = vim.lsp.get_clients({ bufnr = bufnr })
+          if #clients > 0 then
+            local navic = require("nvim-navic")
+            if navic.is_available() then
+              return navic.get_location({}, bufnr)
+            end
+          end
+          return ""
+        end,
       },
       lualine_x = {
         function()
