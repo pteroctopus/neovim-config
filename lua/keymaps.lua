@@ -55,21 +55,21 @@ return {
     --vim.keymap.set('n', 'j', 'v:count == 0 ? 'gj' : 'j'', { expr = true, silent = true })
 
     -- Format code
-    vim.keymap.set(
-      'n', '<leader>f',
-      function()
-        if vim.bo.filetype == 'markdown' then
-          vim.bo.textwidth = 80
-          vim.o.colorcolumn = '80'
-          vim.api.nvim_command(':w')
-          vim.api.nvim_command(':silent !deno fmt %')
-          print('Deno format complete')
-        else
-          vim.api.nvim_command(':Format')
-        end
-      end,
-      { desc = '[B] Format buffer with external tool of language server' }
-    )
+    -- vim.keymap.set(
+    --   'n', '<leader>f',
+    --   function()
+    --     if vim.bo.filetype == 'markdown' then
+    --       vim.bo.textwidth = 80
+    --       vim.o.colorcolumn = '80'
+    --       vim.api.nvim_command(':w')
+    --       vim.api.nvim_command(':silent !deno fmt %')
+    --       print('Deno format complete')
+    --     else
+    --       vim.api.nvim_command(':Format')
+    --     end
+    --   end,
+    --   { desc = '[B] Format buffer with external tool of language server' }
+    -- )
 
     -- Diagnostic keymaps
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = '[B] Previous diagnostic'})
