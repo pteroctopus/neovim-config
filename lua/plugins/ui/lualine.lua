@@ -1,7 +1,7 @@
 return {
   enabled = true,
-  lazy = true,
-  event = "VeryLazy",
+  -- lazy = true,
+  -- event = "VeryLazy",
   -- Set lualine as statusline
   "nvim-lualine/lualine.nvim",
   -- See `:help lualine.txt`
