@@ -13,6 +13,7 @@ local telescope_keymaps = function()
       mode = "n",
       desc = "[T] Find existing buffers",
     },
+    { "<leader>gg", "<cmd>Telescope<cr>", mode = "n", desc = "[T] Open Telescope" },
     { "<leader>gf", "<cmd>Telescope git_files<cr>", mode = "n", desc = "[T] Search Git Files" },
     { "<leader>sf", "<cmd>Telescope find_files<cr>", mode = "n", desc = "[T] Search Files" },
     { "<leader>sh", "<cmd>Telescope help_tags<cr>", mode = "n", desc = "[T] Search Help" },

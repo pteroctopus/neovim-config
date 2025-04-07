@@ -34,16 +34,8 @@ return {
       "<Nop>",
       { silent = true, desc = "[B] Disable space in normal and visual modes" }
     )
-    -- Replace : and ;
-    -- vim.keymap.set({ 'n', 'v' }, ';', ':', { noremap = true })
-    -- vim.keymap.set({ 'n', 'v' }, ':', ';', { noremap = true })
-    -- Search next/previous and center
-    -- vim.keymap.set('n', 'n', 'nzz', { silent = true, noremap = true })
-    -- vim.keymap.set('n', '<S-n>', '<S-n>zz', { silent = true, noremap = true })
     -- Show full name and buffer of currently open file instead of short name
     vim.keymap.set("n", "<C-g>", "2<C-g>")
-    -- Relative or absolute numbering settings
-    -- vim.keymap.set('n', '<leader>nu', function() vim.o.relativenumber = not vim.o.relativenumber end, { desc = '[B] Toggle relativenumber' })
     -- Execute macro in register q from next line to the end of the file
     vim.keymap.set(
       "n",
@@ -60,26 +52,6 @@ return {
     vim.keymap.set("n", "<cr>", ":noh<cr><cr>", { silent = true })
     -- Remap Esc to also remove search highlight
     vim.keymap.set("n", "<esc>", ":noh<esc>", { silent = true })
-    -- Remap for dealing with word wrap
-    --vim.keymap.set('n', 'k', 'v:count == 0 ? 'gk' : 'k'', { expr = true, silent = true })
-    --vim.keymap.set('n', 'j', 'v:count == 0 ? 'gj' : 'j'', { expr = true, silent = true })
-
-    -- Format code
-    -- vim.keymap.set(
-    --   'n', '<leader>f',
-    --   function()
-    --     if vim.bo.filetype == 'markdown' then
-    --       vim.bo.textwidth = 80
-    --       vim.o.colorcolumn = '80'
-    --       vim.api.nvim_command(':w')
-    --       vim.api.nvim_command(':silent !deno fmt %')
-    --       print('Deno format complete')
-    --     else
-    --       vim.api.nvim_command(':Format')
-    --     end
-    --   end,
-    --   { desc = '[B] Format buffer with external tool of language server' }
-    -- )
 
     -- Diagnostic keymaps
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "[B] Previous diagnostic" })
