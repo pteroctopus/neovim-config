@@ -17,6 +17,9 @@ return {
       "stylua",
       "shfmt",
       "hclfmt",
+      "mdformat",
+      "yamlfmt",
+      "jq",
     },
   },
   dependencies = {
