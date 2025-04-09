@@ -19,7 +19,9 @@ return {
     { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
   },
   build = "make tiktoken", -- Only on MacOS or Linux
-  opts = {},
+  opts = {
+    model = 'gpt-4o',
+  },
   keys = {
     {
       "<leader>ho",
