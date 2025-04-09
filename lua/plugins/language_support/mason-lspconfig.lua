@@ -192,7 +192,4 @@ return {
     ensure_installed = vim.tbl_keys(servers),
     handlers = handlers,
   },
-  dependencies = {
-    "folke/neodev.nvim",
-  },
 }

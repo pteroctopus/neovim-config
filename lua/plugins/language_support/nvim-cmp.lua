@@ -15,6 +15,7 @@ return {
     "rafamadriz/friendly-snippets",
     -- Copilot completion
     "zbirenbaum/copilot-cmp",
+    "folke/lazydev.nvim",
   },
   opts = function()
     local cmp = require("cmp")
@@ -62,6 +63,7 @@ return {
         { name = "luasnip", group_index = 2 },
         { name = "buffer", group_index = 2 },
         { name = "path", group_index = 2 },
+        { name = "lazydev", group_index = 0 },
       },
     }
   end,

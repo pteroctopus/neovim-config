@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   "folke/neodev.nvim",
   lazy = true,
   config = true,
