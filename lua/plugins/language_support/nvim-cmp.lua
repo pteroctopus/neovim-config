@@ -64,6 +64,7 @@ return {
         { name = "buffer", group_index = 2 },
         { name = "path", group_index = 2 },
         { name = "lazydev", group_index = 0 },
+        { name = 'render-markdown', group_index = 2 },
       },
     }
   end,
