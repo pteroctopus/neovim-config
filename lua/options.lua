@@ -60,3 +60,6 @@ vim.o.breakindentopt = "shift:2"
 
 -- Fold settings
 vim.o.foldlevel = 10
+
+-- Dialog instead of fail
+vim.o.confirm = true

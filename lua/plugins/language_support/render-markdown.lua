@@ -7,7 +7,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "echasnovski/mini.icons",
   },
+  keys = {
+    { "<leader>rm", "<cmd>RenderMarkdown toggle<cr>", desc = "[RM] Render Markdown" },
+  },
+
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
-  opts = {},
+  opts = {
+    enabled = false,
+  },
 }
