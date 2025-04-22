@@ -15,7 +15,7 @@ vim.o.smartcase = true
 vim.o.inccommand = "split"
 
 -- Set characters to used when ```set list``` is on
-vim.o.listchars = "tab:»·,trail:·,extends:>,precedes:<,eol:$,space:·"
+vim.o.listchars = "tab:-»,trail:·,extends:>,precedes:<,eol:$,space:·"
 
 -- Disable welcome message
 vim.o.shortmess = vim.o.shortmess .. "I"
