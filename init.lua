@@ -2,6 +2,12 @@
 -- Kickstart neovim configuration: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 -- Commit: d8b3b774bb642a9bdb2930f2ef0dd09e29a2f00c
 
+-- https://neovim.io/doc/user/lua.html#vim.loader
+-- Enabled experimantal lua module loader befause of slowness of startup 1-5 seconds of customized neovim on corporate macos laptop.
+-- This is for testing purposes to see if it helps.
+-- Cause of slowness in unknown.
+vim.loader.enable()
+
 -- Disable LSP logs
 vim.lsp.set_log_level("off")
 
@@ -38,6 +44,8 @@ require("text-objects")
 
 -- Chosen theme
 vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("kanagawa-dragon")
 
 -- Neovide
 if vim.g.neovide then
