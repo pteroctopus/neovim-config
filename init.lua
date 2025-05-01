@@ -44,8 +44,6 @@ require("text-objects")
 
 -- Chosen theme
 vim.cmd.colorscheme("onedark")
--- vim.cmd.colorscheme("rose-pine")
--- vim.cmd.colorscheme("kanagawa-dragon")
 
 -- Neovide
 if vim.g.neovide then
