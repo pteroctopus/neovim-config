@@ -2,6 +2,7 @@ return {
   -- Theme inspired by Atom
   "navarasu/onedark.nvim",
   priority = 1000,
+  enabled = false,
   opts = {
     colors = {
       black = "#07080b",

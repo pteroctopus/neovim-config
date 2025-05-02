@@ -43,7 +43,8 @@ require("additional-filetypes")
 require("text-objects")
 
 -- Chosen theme
-vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("rose-pine")
 
 -- Neovide
 if vim.g.neovide then

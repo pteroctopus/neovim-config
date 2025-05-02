@@ -85,9 +85,9 @@ return {
         {
           "buffers",
           --max_length = vim.o.columns * 9/10,
-        buffers_color = {
-          active = { fg = '#a0a8b7', bg = '#172a3a', gui = "bold" },
-        },
+          -- buffers_color = {
+          --   active = { fg = "#a0a8b7", bg = "#172a3a", gui = "bold" },
+          -- },
         },
       },
       lualine_b = {},
