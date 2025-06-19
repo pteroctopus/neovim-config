@@ -159,7 +159,7 @@ local servers = {
   --remark_ls = {},
 
   -- XML Language server
-  lemminx = {},
+  -- lemminx = {},
 
   -- Vim language server
   vimls = {},
@@ -186,7 +186,7 @@ local handlers = {
 }
 
 return {
-  "williamboman/mason-lspconfig.nvim",
+  "mason-org/mason-lspconfig.nvim",
   lazy = true,
   opts = {
     ensure_installed = vim.tbl_keys(servers),
