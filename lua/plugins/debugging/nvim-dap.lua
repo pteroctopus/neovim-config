@@ -53,7 +53,7 @@ return {
 
     -- mason.nvim integration
     {
-      "jay-babu/mason-nvim-dap.nvim",
+      "pteroctopus/mason-nvim-dap.nvim",
       dependencies = "mason.nvim",
       cmd = { "DapInstall", "DapUninstall" },
       opts = {
