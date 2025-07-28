@@ -27,6 +27,7 @@ require("lazy").setup({
   { import = "plugins/copilot" },
   { import = "plugins/debugging" },
 })
+
 -- Changes to default neovim options
 require("options")
 -- Abbreviations
