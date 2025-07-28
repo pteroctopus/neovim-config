@@ -42,6 +42,8 @@ require("auto-split-resize")
 require("additional-filetypes")
 -- Setup custom text objects
 require("text-objects")
+-- Diagnostic config
+require("diagnostic-config")
 
 -- Chosen theme
 -- vim.cmd.colorscheme("onedark")
