@@ -25,7 +25,11 @@ return {
     highlight = true,
     lsp = {
       auto_attach = true,
-      preference = nil,
+      preference = {
+        "yamlls",
+        "ansiblels",
+        "helm_ls",
+      },
     },
   },
 }
