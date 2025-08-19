@@ -1,58 +1,3 @@
-local language_server_keymaps = function(bufnr)
-  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr, desc = "[L] Rename" })
-  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "[L] Code Action" })
-
-  vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, { buffer = bufnr, desc = "[L] Goto Definition" })
-
-  vim.keymap.set(
-    "n",
-    "<leader>lf",
-    require("telescope.builtin").lsp_references,
-    { buffer = bufnr, desc = "[L] Goto References" }
-  )
-  vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[L] Goto Implementation" })
-  vim.keymap.set("n", "<leader>lD", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "[L] Type Definition" })
-  vim.keymap.set(
-    "n",
-    "<leader>ls",
-    require("telescope.builtin").lsp_document_symbols,
-    { buffer = bufnr, desc = "[L] Document Symbols" }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>lv",
-    require("telescope.builtin").lsp_dynamic_workspace_symbols,
-    { buffer = bufnr, desc = "[L] Workspace Symbols" }
-  )
-
-  -- See `:help K` for why this keymap
-  vim.keymap.set("n", "<leader>lk", vim.lsp.buf.hover, { buffer = bufnr, desc = "[L] Hover Documentation" })
-  vim.keymap.set(
-    "n",
-    "<leader>lS",
-    vim.lsp.buf.signature_help,
-    { buffer = bufnr, desc = "[L] Signature Documentation" }
-  )
-
-  -- Lesser used LSP functionality
-  vim.keymap.set("n", "<leader>ll", vim.lsp.buf.declaration, { buffer = bufnr, desc = "[L] Goto Declaration" })
-  vim.keymap.set(
-    "n",
-    "<leader>lwa",
-    vim.lsp.buf.add_workspace_folder,
-    { buffer = bufnr, desc = "[L] Workspace Add Folder" }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>lwr",
-    vim.lsp.buf.remove_workspace_folder,
-    { buffer = bufnr, desc = "[L] Workspace Remove Folder" }
-  )
-  vim.keymap.set("n", "<leader>lwl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, { buffer = bufnr, desc = "[L] Workspace List Folders" })
-end
-
 local servers = {
   -- clangd = {},
   -- rust_analyzer = {},
@@ -165,21 +110,10 @@ local servers = {
   vimls = {},
 }
 
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-local on_attach = function(client, bufnr)
-  language_server_keymaps(bufnr)
-  if client.server_capabilities.documentSymbolProvider then
-    require("nvim-navic").attach(client, bufnr)
-  end
-end
-
 local handlers = {
   function(server_name)
     require("lspconfig")[server_name].setup({
       capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-      on_attach = on_attach,
       settings = servers[server_name],
     })
   end,
