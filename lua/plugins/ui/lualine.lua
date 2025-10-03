@@ -69,7 +69,10 @@ return {
         },
       },
       lualine_y = {
-        "filename",
+        -- "filename",
+        function()
+          return vim.fn.expand("%:.")
+        end,
       },
     },
     sections = {
