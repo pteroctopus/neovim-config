@@ -31,6 +31,9 @@ return {
     highlight_groups = {
       Visual = { bg = "highlight_med", inherit = false, blend = 100 },
       Search = { bg = "gold", fg = "base", inherit = false, blend = 70 },
+      -- Telescope
+      TelescopeBorder = { fg = "muted", bg = "base" },
+      NormalFloat = { bg = "base" },
     },
     styles = {
       bold = true,
