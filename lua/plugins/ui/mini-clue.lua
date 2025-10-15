@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.clue",
+  enabled = true,
   version = "*",
   lazy = true,
   event = "CursorHold",
