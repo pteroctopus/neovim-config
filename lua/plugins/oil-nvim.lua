@@ -25,6 +25,7 @@ vim.keymap.set("n", "<leader>o", oil_toggle_curr_buf_path, { desc = "[O] Oil cur
 vim.keymap.set("n", "<leader>O", oil_toggle_cwd, { desc = "[O] Oil cwd path" })
 
 return {
+  enabled = true,
   "stevearc/oil.nvim",
   ---@module 'oil'
   ---@type oil.SetupOpts
@@ -33,8 +34,8 @@ return {
     columns = {
       -- 'permissions',
       -- 'mtime',
-      "size",
-      "icon",
+      -- "size",
+      -- "icon",
     },
   },
   -- Optional dependencies

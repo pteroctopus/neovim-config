@@ -26,10 +26,12 @@ return {
         -- highlight_med = "#403d52",
         -- highlight_high = "#524f67",
         -- none = "NONE",
+        xxx = "#ffff00"
       },
     },
     highlight_groups = {
-      Visual = { bg = "highlight_med", inherit = false, blend = 100 },
+      Visual = { bg = "gold", fg="base", inherit=false, blend = 100 },
+      -- Visual = { bg = "love", inherit=false, blend = 50 },
       Search = { bg = "gold", fg = "base", inherit = false, blend = 70 },
       -- Telescope
       TelescopeBorder = { fg = "muted", bg = "base" },
