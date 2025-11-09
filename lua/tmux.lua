@@ -33,11 +33,15 @@ local function set_tmux_current_file()
   if not var_name then return end
 
   -- set global tmux env variable
-  vim.fn.system(string.format(
-    "tmux set-environment -g %s %s >/dev/null 2>&1",
-    var_name,
-    vim.fn.shellescape(fname)
-  ))
+  if vim.system then
+    vim.system({"tmux", "set-environment", "-g", var_name, vim.fn.shellescape(fname)}, {detach = true})
+  else
+    vim.fn.system(string.format(
+      "tmux set-environment -g %s %s >/dev/null 2>&1",
+      var_name,
+      vim.fn.shellescape(fname)
+    ))
+  end
 end
 
 -- Debounce timer for open files updates
@@ -91,10 +95,14 @@ local function unset_tmux_current_file()
   if not var_name then return end
 
   -- unset global tmux env variable
-  vim.fn.system(string.format(
-    "tmux set-environment -gu %s >/dev/null 2>&1",
-    var_name
-  ))
+  if vim.system then
+    vim.system({"tmux", "set-environment", "-gu", var_name}, {detach = true})
+  else
+    vim.fn.system(string.format(
+      "tmux set-environment -gu %s >/dev/null 2>&1",
+      var_name
+    ))
+  end
 end
 
 local function unset_tmux_open_files()
