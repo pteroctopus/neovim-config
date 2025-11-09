@@ -52,7 +52,7 @@ local function set_tmux_open_files()
     update_timer:stop()
   end
 
-  update_timer = vim.defer_fn(function()
+  -- update_timer = vim.defer_fn(function()
     local var_name = get_var_name()
     if not var_name then return end
 
@@ -85,7 +85,7 @@ local function set_tmux_open_files()
         vim.fn.shellescape(files_list)
       ))
     end
-  end, 100)
+  -- end, 100)
 end
 
 local function unset_tmux_current_file()
