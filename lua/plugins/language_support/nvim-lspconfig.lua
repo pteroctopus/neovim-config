@@ -53,6 +53,24 @@ local language_server_keymaps = function(bufnr)
   end, { buffer = bufnr, desc = "[L] Workspace List Folders" })
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+vim.lsp.config('*', {
+  capabilities = capabilities,
+  root_markers = { '.git' },
+  -- on_attach = function(client, bufnr)
+  --   if client.server_capabilities.documentSymbolProvider then
+  --     navic.attach(client, bufnr)
+  --   end
+  --end
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('pteroctopus-lsp-attach', { clear = true }),
+  callback = function(event)
+    language_server_keymaps(event.buf)
+  end
+})
+
 return {
   -- LSP Configuration & Plugins
   "neovim/nvim-lspconfig",
@@ -62,15 +80,9 @@ return {
     -- Automatically install LSPs to stdpath for neovim
     "mason-org/mason.nvim",
     "mason-org/mason-lspconfig.nvim",
+    -- "hrsh7th/nvim-cmp",
+    -- "WhoIsSethDaniel/mason-tool-installer.nvim",
     -- Useful status updates for LSP
     "j-hui/fidget.nvim",
   },
-  config = function()
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('pteroctopus-lsp-attach', { clear = true }),
-        callback = function(event)
-          language_server_keymaps(event.buf)
-        end
-    })
-  end
 }

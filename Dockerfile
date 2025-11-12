@@ -62,6 +62,6 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | b
 # Set up Neovim config
 RUN git clone https://github.com/pteroctopus/neovim-config.git /home/user/.config/nvim && \
     cd /home/user/.config/nvim && \
-    git switch dev
+    git switch feature/new-lsp-config
 
 ENTRYPOINT ["/bin/bash"]

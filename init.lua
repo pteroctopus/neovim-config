@@ -46,6 +46,8 @@ require("text-objects")
 require("diagnostic-config")
 -- Tmux config
 require("tmux")
+-- LSP
+require("lsp")
 
 -- Chosen theme
 -- vim.cmd.colorscheme("onedark")
