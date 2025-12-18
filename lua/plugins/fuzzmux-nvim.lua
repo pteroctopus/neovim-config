@@ -1,6 +1,6 @@
 return {
 
-  'pteroctopus/fuzzmux.nvim',
+  "pteroctopus/fuzzmux.nvim",
   opts = {
     -- Optional configuration
     -- Currently no options available

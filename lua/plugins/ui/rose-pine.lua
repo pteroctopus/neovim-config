@@ -30,7 +30,8 @@ return {
       },
     },
     highlight_groups = {
-      Visual = { bg = "gold", fg="base", inherit=false, blend = 100 },
+      Visual = { bg = "#312f48", inherit=false, blend = 100 },
+      -- Visual = { bg = "gold", fg="base", inherit=false, blend = 100 },
       -- Visual = { bg = "love", inherit=false, blend = 50 },
       Search = { bg = "gold", fg = "base", inherit = false, blend = 70 },
       -- Telescope
