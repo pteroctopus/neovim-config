@@ -44,6 +44,8 @@ require("additional-filetypes")
 require("text-objects")
 -- Diagnostic config
 require("diagnostic-config")
+-- Treesitter init
+require("treesitter-init")
 -- LSP
 require("lsp")
 

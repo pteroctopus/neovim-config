@@ -6,7 +6,7 @@ vim.g.openbrowser_browser_commands = {
   },
 }
 
--- TODO this needs to be set in lua
+-- TODO: this needs to be set in lua
 vim.cmd([[
 let g:plantuml_previewer#viewer_path = '~/plantuml/viewer'
 ]])

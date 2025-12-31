@@ -19,7 +19,8 @@ return {
       TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
     },
     highlight = {
-      pattern = [[.*<(KEYWORDS)\s*]],
+      pattern = [[.*<(KEYWORDS)\s*:]],
+      comments_only = true,
     },
     search = {
       pattern = [[\b(KEYWORDS)\b]],
