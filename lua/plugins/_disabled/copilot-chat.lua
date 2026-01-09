@@ -11,6 +11,7 @@ end, { desc = "[CopilotChat] Quick chat" })
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
+  enabled = false,
   lazy = true,
   cmd = "CopilotChat",
   branch = "main",
