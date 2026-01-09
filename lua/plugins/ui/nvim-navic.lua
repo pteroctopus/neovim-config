@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 return {
   "SmiteshP/nvim-navic",
   enabled = true,
-  lazy = false,
+  lazy = true,
   event = "LspAttach",
   dependencies = {
     "neovim/nvim-lspconfig",
