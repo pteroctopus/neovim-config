@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.clue",
+  "nvim-mini/mini.clue",
   enabled = true,
   version = "*",
   lazy = true,

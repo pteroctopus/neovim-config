@@ -1,5 +1,6 @@
 return {
-  "echasnovski/mini.icons",
+  "nvim-mini/mini.icons",
+  enabled = true,
   opts = {},
   lazy = true,
   specs = {

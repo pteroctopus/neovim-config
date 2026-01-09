@@ -3,7 +3,7 @@ return {
   lazy = true,
   cmd = "Trouble",
   dependencies = {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
   },
   opts = {},
   keys = {

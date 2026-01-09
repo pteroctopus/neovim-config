@@ -5,7 +5,7 @@ return {
   ft = { "markdown" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
   },
   keys = {
     { "<leader>rm", "<cmd>RenderMarkdown toggle<cr>", desc = "[RM] Render Markdown" },

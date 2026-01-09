@@ -1,6 +1,7 @@
 -- Plugin configuration
 return {
   "SmiteshP/nvim-navbuddy",
+  enabled = true,
   lazy = true,
   event = "LspAttach",
   dependencies = {
