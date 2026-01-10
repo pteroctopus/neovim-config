@@ -1,5 +1,5 @@
 vim.lsp.config("yamlls", {
-  filetypes = { "yaml", "yaml.ansible", "yaml.docker-compose" },
+  filetypes = { "yaml", "yaml.ansible", "yaml.docker-compose", "yaml.helm-values" },
   settings = {
     yaml = {
       schemas = {
