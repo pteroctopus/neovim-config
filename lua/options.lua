@@ -63,3 +63,6 @@ vim.o.foldlevel = 10
 
 -- Dialog instead of fail
 vim.o.confirm = true
+
+-- Disregard white space changes in diff
+vim.opt.diffopt:append("iwhite")
