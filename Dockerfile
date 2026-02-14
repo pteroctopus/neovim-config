@@ -10,6 +10,9 @@
 #
 # To run nvim once inside the container, you can use: nvim and all plugins will be automaticaly installed
 # Additionally to install Mason tools inside neovim use: MasonToolsInstall (this will not be automatic because Mason Tools plugin iz Lazy loaded)
+# TODO: install delta that will be used by delta plugin
+# https://github.com/dandavison/delta?tab=readme-ov-file
+# https://github.com/kokusenz/deltaview.nvim
 FROM ubuntu:22.04
 
 # Install dependencies as root

@@ -37,6 +37,7 @@ return {
       "terraformls",
       "vimls",
       "yamlls",
+      "glsl_analyzer",
     },
   },
   dependencies = {
