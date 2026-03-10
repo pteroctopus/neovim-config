@@ -86,5 +86,22 @@ return {
     vim.keymap.set("n", "<leader>cp", ":cprevious<cr>", { silent = true, desc = "[B] Previous item in quickfix list" })
     vim.keymap.set("n", "<leader>cf", ":cfirst<cr>", { silent = true, desc = "[B] First item in quickfix list" })
     vim.keymap.set("n", "<leader>cl", ":clast<cr>", { silent = true, desc = "[B] Last item in quickfix list" })
+
+    -- vim.keymap.set("n", "<leader>y", function()
+    --   vim.fn.setreg("+", string.format(
+    --     "%s:%d:%d",
+    --     vim.fn.expand("%"),
+    --     vim.fn.line("."),
+    --     vim.fn.col(".")
+    --   ))
+    -- end)
+
+    vim.keymap.set("n", "<leader>y", function()
+      local abs_path = vim.fn.expand("%:p")
+      local rel_path = vim.fn.fnamemodify(abs_path, ":.")
+      vim.fn.setreg("+", string.format("%s:%d:%d", rel_path, vim.fn.line("."), vim.fn.col(".")))
+      print(rel_path .. ":" .. vim.fn.line(".") .. ":" .. vim.fn.col("."))
+    end)
+
   end,
 }

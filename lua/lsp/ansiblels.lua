@@ -1,4 +1,3 @@
--- TODO: something wrong
 vim.lsp.config("ansiblels", {
   settings = {
     ansible = {
