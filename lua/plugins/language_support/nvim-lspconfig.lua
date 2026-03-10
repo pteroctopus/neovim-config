@@ -84,5 +84,7 @@ return {
     -- "WhoIsSethDaniel/mason-tool-installer.nvim",
     -- Useful status updates for LSP
     "j-hui/fidget.nvim",
+    -- Lua types for Neovim API
+    "folke/lazydev.nvim",
   },
 }
