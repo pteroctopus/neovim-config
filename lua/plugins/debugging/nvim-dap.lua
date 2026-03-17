@@ -61,9 +61,47 @@ return {
         -- reasonable debug configurations
         automatic_installation = true,
 
-        -- You can provide additional configuration to the handlers,
-        -- see mason-nvim-dap README for more information
-        handlers = {},
+        handlers = {
+          -- Use default handler for all adapters except delve
+          function(config)
+            require("mason-nvim-dap").default_setup(config)
+          end,
+          -- Custom delve handler: use ${fileDirname} so it works from any Go project
+          delve = function(config)
+            config.configurations = {
+              {
+                type = "delve",
+                name = "Delve: Debug",
+                request = "launch",
+                program = "${fileDirname}",
+              },
+              {
+                type = "delve",
+                name = "Delve: Debug (Arguments)",
+                request = "launch",
+                program = "${fileDirname}",
+                args = function()
+                  return vim.split(vim.fn.input("Args: "), " ")
+                end,
+              },
+              {
+                type = "delve",
+                name = "Delve: Debug test",
+                request = "launch",
+                mode = "test",
+                program = "${file}",
+              },
+              {
+                type = "delve",
+                name = "Delve: Debug test (go.mod)",
+                request = "launch",
+                mode = "test",
+                program = "./${relativeFileDirname}",
+              },
+            }
+            require("mason-nvim-dap").default_setup(config)
+          end,
+        },
 
         ensure_installed = {
           -- [[ Python]]
