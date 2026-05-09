@@ -25,4 +25,7 @@ vim.diagnostic.config {
       return diagnostic_message[diagnostic.severity]
     end,
   },
+  -- Multi-line diagnostic block under the cursor line; other lines still get
+  -- the end-of-line virtual_text preview above.
+  virtual_lines = { current_line = true },
 }
