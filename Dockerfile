@@ -1,19 +1,20 @@
-# This Dockerfile can be used to tryout this configuration with the last stable neovim before update
+# This Dockerfile builds an isolated container to test the feature/nvim012 branch
+# of this configuration on the latest stable Neovim (0.12.x).
 #
 # To build the image for arm64 architecture use:
-# docker buildx build --platform linux/arm64 -t <REPO>/nvim:<TAG>-arm64 --load -f Dockerfile .
+# docker buildx build --platform linux/arm64 -t <REPO>/nvim:nvim012-arm64 --load -f Dockerfile .
 # and for amd64 architecture use:
-# docker buildx build --platform linux/amd64 -t <REPO>/nvim:<TAG>-amd64 --load -f Dockerfile .
+# docker buildx build --platform linux/amd64 -t <REPO>/nvim:nvim012-amd64 --load -f Dockerfile .
 #
 # To run the container and mount your home directory to the container, use:
-# docker run -v $(realpath $HOME):/home/user/ext -it <REPO>/nvim:<TAG>-arm64
+# docker run -v $(realpath $HOME):/home/user/ext -it <REPO>/nvim:nvim012-arm64
 #
 # To run nvim once inside the container, you can use: nvim and all plugins will be automaticaly installed
 # Additionally to install Mason tools inside neovim use: MasonToolsInstall (this will not be automatic because Mason Tools plugin iz Lazy loaded)
 # TODO: install delta that will be used by delta plugin
 # https://github.com/dandavison/delta?tab=readme-ov-file
 # https://github.com/kokusenz/deltaview.nvim
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Install dependencies as root
 RUN apt update && apt install -y \
@@ -62,9 +63,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | b
     bash -lc "npm install -g tree-sitter-cli" && \
     curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-# Set up Neovim config
-RUN git clone https://github.com/pteroctopus/neovim-config.git /home/user/.config/nvim && \
-    cd /home/user/.config/nvim && \
-    git switch feature/new-lsp-config
+# Copy the local config (cache-friendly: invalidates only when config files change)
+COPY --chown=user:user . /home/user/.config/nvim
 
 ENTRYPOINT ["/bin/bash"]

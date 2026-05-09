@@ -6,6 +6,14 @@ return {
   config = function()
     require("nvim-treesitter").setup({})
 
+    -- v1 main branch only installs parsers; we must enable highlighting ourselves.
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "*",
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
+    })
+
     require("nvim-treesitter").install({
       "angular",
       "awk",

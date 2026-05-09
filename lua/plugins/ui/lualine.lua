@@ -18,14 +18,14 @@ return {
         "dapui_breakpoints",
         "dapui_stacks",
         "dapui_watches",
-        -- nvim-tree plugin buffer
-        "NvimTree",
-        -- Trouble plugin window
-        "Trouble",
       },
     },
-    winbar = {
-      lualine_b = {
+    -- winbar is owned by dropbar.nvim
+    sections = {
+      lualine_a = { "mode" },
+      lualine_b = { "branch", "diff", "diagnostics" },
+      lualine_c = { "filename" },
+      lualine_x = {
         {
           icons_enabled = true,
           icon = "",
@@ -38,48 +38,10 @@ return {
           icon = "",
           "filesize",
         },
+        "encoding",
+        "fileformat",
+        "filetype",
       },
-      lualine_c = {
-        function()
-          local bufnr = vim.api.nvim_get_current_buf()
-          local clients = vim.lsp.get_clients({ bufnr = bufnr })
-          if #clients > 0 then
-            local navic = require("nvim-navic")
-            if navic.is_available() then
-              return navic.get_location({}, bufnr)
-            end
-          end
-          return ""
-        end,
-      },
-      lualine_x = {
-        function()
-          return vim.fn.expand("%:.")
-        end,
-      },
-    },
-    inactive_winbar = {
-      lualine_b = {
-        {
-          icons_enabled = true,
-          icon = "",
-          function()
-            return vim.api.nvim_buf_line_count(0)
-          end,
-        },
-      },
-      lualine_y = {
-        -- "filename",
-        function()
-          return vim.fn.expand("%:.")
-        end,
-      },
-    },
-    sections = {
-      lualine_a = { "mode" },
-      lualine_b = { "branch", "diff", "diagnostics" },
-      lualine_c = { "filename" },
-      lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },
@@ -98,7 +60,7 @@ return {
       lualine_x = {},
       lualine_y = {
         function()
-          return " " .. vim.fn.getcwd()
+          return " " .. vim.fn.getcwd()
         end,
       },
       lualine_z = { "tabs" },

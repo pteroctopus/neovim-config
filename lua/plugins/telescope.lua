@@ -43,7 +43,7 @@ return {
   -- Fuzzy Finder (files, lsp, etc)
   {
     "nvim-telescope/telescope.nvim",
-    tag = "v0.2.0",
+    tag = "v0.2.1",
     lazy = true,
     cmd = "Telescope",
     dependencies = {

@@ -9,6 +9,7 @@ return {
     "MasonToolsUpdateSync",
   },
   opts = {
+    -- Formatters/linters/DAPs only. LSPs are managed by mason-lspconfig.
     ensure_installed = {
       "black",
       "isort",
@@ -20,24 +21,6 @@ return {
       "mdformat",
       "yamlfmt",
       "jq",
-      -- language servers
-      "ansiblels",
-      "awk_ls",
-      "bashls",
-      "cssls",
-      "dockerls",
-      "gopls",
-      "groovyls",
-      "helm_ls",
-      "html",
-      "jsonls",
-      "lua_ls",
-      "marksman",
-      "pyright",
-      "terraformls",
-      "vimls",
-      "yamlls",
-      "glsl_analyzer",
     },
   },
   dependencies = {

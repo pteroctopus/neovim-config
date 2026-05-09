@@ -3,7 +3,7 @@ return {
   "lewis6991/gitsigns.nvim",
   enabled = true,
   lazy = true,
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   keys = {
     { "<leader>gp", ":Gitsigns prev_hunk<cr>", desc = "[GS] Go to Previous Hunk", silent = true },
     { "<leader>gn", ":Gitsigns next_hunk<cr>", desc = "[GS] Go to Next Hunk", silent = true },

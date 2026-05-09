@@ -1,12 +1,16 @@
-vim.keymap.set("n", "[e", function()
-  require("treesitter-context").go_to_context()
-end, { silent = true, desc = "[TSC] Previous context element" })
-
 return {
-  enabled = true,
   "nvim-treesitter/nvim-treesitter-context",
+  enabled = true,
   lazy = true,
   event = { "CursorHold" },
+  keys = {
+    {
+      "[e",
+      function() require("treesitter-context").go_to_context() end,
+      silent = true,
+      desc = "[TSC] Previous context element",
+    },
+  },
   opts = {
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
     max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.

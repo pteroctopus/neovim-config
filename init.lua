@@ -1,15 +1,8 @@
--- This neovim configuration was created using kickstart.nvim as a starting template
--- Kickstart neovim configuration: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
--- Commit: d8b3b774bb642a9bdb2930f2ef0dd09e29a2f00c
-
--- https://neovim.io/doc/user/lua.html#vim.loader
--- Enabled experimantal lua module loader befause of slowness of startup 1-5 seconds of customized neovim on corporate macos laptop.
--- This is for testing purposes to see if it helps.
--- Cause of slowness in unknown.
+-- Based on kickstart.nvim: https://github.com/nvim-lua/kickstart.nvim
 vim.loader.enable()
 
 -- Disable LSP logs
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level("off")
 
 -- Leader keys setup
 -- (Must be before plugins are loaded)
@@ -24,7 +17,6 @@ require("lazy").setup({
   { import = "plugins/nav_edit" },
   { import = "plugins/ui" },
   { import = "plugins/git" },
-  { import = "plugins/copilot" },
   { import = "plugins/debugging" },
 })
 
@@ -33,24 +25,18 @@ require("options")
 -- Abbreviations
 require("abbreviations")
 -- Custom keymaps
-require("keymaps").basic()
+require("keymaps")
 -- Highlight on yank text object
 require("yank-highlight")
 -- Automatic window split resize
 require("auto-split-resize")
 -- Setup of additional filetypes
 require("additional-filetypes")
--- Setup custom text objects
-require("text-objects")
 -- Diagnostic config
 require("diagnostic-config")
--- Treesitter init
-require("treesitter-init")
--- LSP
-require("lsp")
+-- LSP: server configs in <rtp>/lsp/<name>.lua, enabled in nvim-lspconfig spec config()
 
 -- Chosen theme
--- vim.cmd.colorscheme("onedark")
 vim.cmd.colorscheme("rose-pine")
 
 -- Neovide
@@ -58,6 +44,3 @@ if vim.g.neovide then
   vim.o.guifont = "JetBrainsMono Nerd Font:h18"
   -- vim.o.guifont = "0xProto Nerd Font:h18"
 end
-
--- Print location from which neovim configuration was loaded
--- print(os.getenv('MYVIMRC'))

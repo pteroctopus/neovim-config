@@ -1,5 +1,11 @@
 return {
-  "chrisbra/Colorizer",
+  "catgoose/nvim-colorizer.lua",
   lazy = true,
-  cmd = "ColorToggle",
+  cmd = {
+    "ColorizerToggle",
+    "ColorizerAttachToBuffer",
+    "ColorizerDetachFromBuffer",
+    "ColorizerReloadAllBuffers",
+  },
+  opts = {},
 }

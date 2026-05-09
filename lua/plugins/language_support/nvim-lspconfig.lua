@@ -4,26 +4,17 @@ local language_server_keymaps = function(bufnr)
 
   vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, { buffer = bufnr, desc = "[L] Goto Definition" })
 
-  vim.keymap.set(
-    "n",
-    "<leader>lf",
-    require("telescope.builtin").lsp_references,
-    { buffer = bufnr, desc = "[L] Goto References" }
-  )
+  vim.keymap.set("n", "<leader>lf", function()
+    require("telescope.builtin").lsp_references()
+  end, { buffer = bufnr, desc = "[L] Goto References" })
   vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, { buffer = bufnr, desc = "[L] Goto Implementation" })
   vim.keymap.set("n", "<leader>lD", vim.lsp.buf.type_definition, { buffer = bufnr, desc = "[L] Type Definition" })
-  vim.keymap.set(
-    "n",
-    "<leader>ls",
-    require("telescope.builtin").lsp_document_symbols,
-    { buffer = bufnr, desc = "[L] Document Symbols" }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>lv",
-    require("telescope.builtin").lsp_dynamic_workspace_symbols,
-    { buffer = bufnr, desc = "[L] Workspace Symbols" }
-  )
+  vim.keymap.set("n", "<leader>ls", function()
+    require("telescope.builtin").lsp_document_symbols()
+  end, { buffer = bufnr, desc = "[L] Document Symbols" })
+  vim.keymap.set("n", "<leader>lv", function()
+    require("telescope.builtin").lsp_dynamic_workspace_symbols()
+  end, { buffer = bufnr, desc = "[L] Workspace Symbols" })
 
   -- See `:help K` for why this keymap
   vim.keymap.set("n", "<leader>lk", vim.lsp.buf.hover, { buffer = bufnr, desc = "[L] Hover Documentation" })
@@ -53,21 +44,21 @@ local language_server_keymaps = function(bufnr)
   end, { buffer = bufnr, desc = "[L] Workspace List Folders" })
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- Built-in completion: 0.12 auto-merges client capabilities.
 vim.lsp.config('*', {
-  capabilities = capabilities,
   root_markers = { '.git' },
-  -- on_attach = function(client, bufnr)
-  --   if client.server_capabilities.documentSymbolProvider then
-  --     navic.attach(client, bufnr)
-  --   end
-  --end
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('pteroctopus-lsp-attach', { clear = true }),
   callback = function(event)
     language_server_keymaps(event.buf)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if not client then return end
+    -- Completion is handled by blink.cmp.
+    if client:supports_method('textDocument/inlayHint') then
+      vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+    end
   end
 })
 
@@ -80,11 +71,29 @@ return {
     -- Automatically install LSPs to stdpath for neovim
     "mason-org/mason.nvim",
     "mason-org/mason-lspconfig.nvim",
-    -- "hrsh7th/nvim-cmp",
-    -- "WhoIsSethDaniel/mason-tool-installer.nvim",
-    -- Useful status updates for LSP
-    "j-hui/fidget.nvim",
-    -- Lua types for Neovim API
-    "folke/lazydev.nvim",
+    -- fidget.nvim self-loads on LspAttach.
+    -- lazydev.nvim self-loads on FileType lua.
   },
+  config = function()
+    -- Servers are configured via <rtp>/lsp/<name>.lua and merged with
+    -- nvim-lspconfig defaults (cmd, filetypes, root_markers).
+    vim.lsp.enable({
+      "yamlls",
+      "ansiblels",
+      "terraformls",
+      "pyright",
+      "lua_ls",
+      "dockerls",
+      "bashls",
+      "awk_ls",
+      "html",
+      "cssls",
+      "jsonls",
+      "marksman",
+      "vimls",
+      "gopls",
+      "groovyls",
+      "helm_ls",
+    })
+  end,
 }
