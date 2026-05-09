@@ -1,7 +1,7 @@
 return {
-  "pteroctopus/faster.nvim",
+  -- "pteroctopus/faster.nvim",
   -- enabled = false,
-  -- dir = "~/Development/github/faster.nvim/",
-  -- dev = true,
-  -- name = "faster.nvim",
+  dir = "~/Development/github/faster.nvim/",
+  dev = true,
+  name = "faster.nvim",
 }

@@ -54,8 +54,12 @@ return {
     vim.keymap.set("n", "<esc>", ":noh<esc>", { silent = true })
 
     -- Diagnostic keymaps
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "[B] Previous diagnostic" })
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "[B] Next diagnostic" })
+    vim.keymap.set("n", "[d", function()
+      vim.diagnostic.jump({ count = -1, float = true })
+    end, { desc = "[B] Previous diagnostic" })
+    vim.keymap.set("n", "]d", function()
+      vim.diagnostic.jump({ count = 1, float = true })
+    end, { desc = "[B] Next diagnostic" })
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "[B] Open diagnostics floating window" })
     vim.keymap.set("n", "<leader>w", vim.diagnostic.setloclist, { desc = "[B] Open diagnostics buffer" })
 

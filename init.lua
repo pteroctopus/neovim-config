@@ -9,7 +9,7 @@
 vim.loader.enable()
 
 -- Disable LSP logs
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level("off")
 
 -- Leader keys setup
 -- (Must be before plugins are loaded)
