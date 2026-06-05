@@ -14,6 +14,7 @@ return {
       "html",
       "cssls",
       "jsonls",
+      "ts_ls",
       "marksman",
       "vimls",
       "helm_ls",
