@@ -21,7 +21,7 @@ vim.o.listchars = "tab:-»,trail:·,extends:>,precedes:<,eol:$,space:·"
 vim.o.shortmess = vim.o.shortmess .. "I"
 
 -- Make line numbers default
-vim.wo.number = true
+vim.o.number = true
 
 -- Enable mouse mode
 vim.o.mouse = "a"
@@ -34,7 +34,10 @@ vim.o.undofile = true
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = "yes"
+vim.o.signcolumn = "yes"
+
+-- Show mapping popups (mini.clue) faster; default is 1000ms
+vim.o.timeoutlen = 300
 
 -- Set colorscheme
 vim.o.termguicolors = true
@@ -58,8 +61,11 @@ vim.o.colorcolumn = "120"
 -- Tab and wrap settings
 vim.o.breakindentopt = "shift:2"
 
--- Fold settings
-vim.o.foldlevel = 10
+-- Fold settings: treesitter-based folds, all open by default
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 
 -- Dialog instead of fail
 vim.o.confirm = true

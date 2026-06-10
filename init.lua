@@ -8,6 +8,9 @@ vim.lsp.log.set_level("off")
 -- (Must be before plugins are loaded)
 vim.g.mapleader = " "
 
+-- Nerd Font is available (drives diagnostic sign icons, etc.)
+vim.g.have_nerd_font = true
+
 -- Install package manager and plugins
 require("package-manager")
 -- Auto initialize plugins and configure them
@@ -18,6 +21,22 @@ require("lazy").setup({
   { import = "plugins/ui" },
   { import = "plugins/git" },
   { import = "plugins/debugging" },
+}, {
+  -- Don't notify on config file changes (the popup is noisy).
+  change_detection = { notify = false },
+  performance = {
+    rtp = {
+      -- Disable unused built-in plugins (oil replaces netrw).
+      disabled_plugins = {
+        "gzip",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+        "netrwPlugin",
+      },
+    },
+  },
 })
 
 -- Changes to default neovim options
