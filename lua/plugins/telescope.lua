@@ -43,11 +43,23 @@ return {
   -- Fuzzy Finder (files, lsp, etc)
   {
     "nvim-telescope/telescope.nvim",
-    tag = "v0.2.1",
+    version = "0.2.*", -- tracks latest 0.2.x release (v0.2.2 at time of writing)
     lazy = true,
     cmd = "Telescope",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+      -- Only load if `make` is available. Make sure you have the system
+      -- requirements installed.
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        -- NOTE: If you are having trouble with this installation,
+        --       refer to the README for telescope-fzf-native for more instructions.
+        build = "make",
+        cond = function()
+          return vim.fn.executable("make") == 1
+        end,
+      },
       --
       -- -- Live grep args picker for telescope.nvim.
       -- -- https://github.com/nvim-telescope/telescope-live-grep-args.nvim
@@ -67,22 +79,12 @@ return {
       },
     },
     config = function(_, opts)
+      -- A custom `config` replaces lazy.nvim's default one, so setup(opts)
+      -- must be called explicitly here, otherwise `opts` is silently ignored.
+      require("telescope").setup(opts)
       pcall(require("telescope").load_extension, "fzf")
       -- pcall(require('telescope').load_extension, 'live_grep_args')
     end,
     keys = telescope_keymaps(),
-  },
-
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-  -- Only load if `make` is available. Make sure you have the system
-  -- requirements installed.
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
-    build = "make",
-    cond = function()
-      return vim.fn.executable("make") == 1
-    end,
   },
 }

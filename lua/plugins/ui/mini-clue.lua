@@ -14,7 +14,13 @@ return {
         delay = 300,
       },
       clues = {
-        -- Enhance this by adding descriptions for <Leader> mapping groups
+        -- <Leader> mapping group labels
+        { mode = "n", keys = "<Leader>c", desc = "+Quickfix" },
+        { mode = "n", keys = "<Leader>d", desc = "+Debug (DAP)" },
+        { mode = "n", keys = "<Leader>g", desc = "+Git / Telescope" },
+        { mode = "n", keys = "<Leader>l", desc = "+LSP / Illuminate" },
+        { mode = "n", keys = "<Leader>lw", desc = "+LSP Workspace" },
+        { mode = "n", keys = "<Leader>s", desc = "+Search (Telescope)" },
         miniclue.gen_clues.builtin_completion(),
         miniclue.gen_clues.g(),
         miniclue.gen_clues.marks(),

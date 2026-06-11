@@ -44,24 +44,6 @@ local language_server_keymaps = function(bufnr)
   end, { buffer = bufnr, desc = "[L] Workspace List Folders" })
 end
 
--- Built-in completion: 0.12 auto-merges client capabilities.
-vim.lsp.config('*', {
-  root_markers = { '.git' },
-})
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('pteroctopus-lsp-attach', { clear = true }),
-  callback = function(event)
-    language_server_keymaps(event.buf)
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if not client then return end
-    -- Completion is handled by blink.cmp.
-    if client:supports_method('textDocument/inlayHint') then
-      vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
-    end
-  end
-})
-
 return {
   -- LSP Configuration & Plugins
   "neovim/nvim-lspconfig",
@@ -75,26 +57,29 @@ return {
     -- lazydev.nvim self-loads on FileType lua.
   },
   config = function()
-    -- Servers are configured via <rtp>/lsp/<name>.lua and merged with
-    -- nvim-lspconfig defaults (cmd, filetypes, root_markers).
-    vim.lsp.enable({
-      "yamlls",
-      "ansiblels",
-      "terraformls",
-      "pyright",
-      "lua_ls",
-      "dockerls",
-      "bashls",
-      "awk_ls",
-      "html",
-      "cssls",
-      "jsonls",
-      "ts_ls",
-      "marksman",
-      "vimls",
-      "gopls",
-      "groovyls",
-      "helm_ls",
+    -- Built-in completion: 0.12 auto-merges client capabilities.
+    vim.lsp.config('*', {
+      root_markers = { '.git' },
     })
+
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('pteroctopus-lsp-attach', { clear = true }),
+      callback = function(event)
+        language_server_keymaps(event.buf)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if not client then return end
+        -- Completion is handled by blink.cmp.
+        if client:supports_method('textDocument/inlayHint') then
+          vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+        end
+      end
+    })
+
+    -- The server list lives in mason-lspconfig.lua (ensure_installed):
+    -- automatic_enable calls vim.lsp.enable for every Mason-installed
+    -- server, with configs merged from <rtp>/lsp/<name>.lua and
+    -- nvim-lspconfig defaults (cmd, filetypes, root_markers).
+    -- Servers installed outside Mason would be enabled manually here:
+    -- vim.lsp.enable({ ... })
   end,
 }

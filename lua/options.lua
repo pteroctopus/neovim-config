@@ -1,9 +1,6 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
--- Set highlight on search
-vim.o.hlsearch = true
-
 -- Stop searching at the end of file
 vim.o.wrapscan = false
 
@@ -41,9 +38,6 @@ vim.o.timeoutlen = 300
 
 -- Set colorscheme
 vim.o.termguicolors = true
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
 
 -- Set relative numbers
 vim.o.relativenumber = true

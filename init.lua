@@ -11,6 +11,10 @@ vim.g.mapleader = " "
 -- Nerd Font is available (drives diagnostic sign icons, etc.)
 vim.g.have_nerd_font = true
 
+-- Changes to default neovim options
+-- (before plugins, so anything read at plugin setup time sees final values)
+require("options")
+
 -- Install package manager and plugins
 require("package-manager")
 -- Auto initialize plugins and configure them
@@ -39,8 +43,6 @@ require("lazy").setup({
   },
 })
 
--- Changes to default neovim options
-require("options")
 -- Abbreviations
 require("abbreviations")
 -- Custom keymaps

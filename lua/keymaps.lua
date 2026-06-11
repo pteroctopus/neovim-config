@@ -36,23 +36,35 @@ map({ "n", "v" }, "<Space>", "<Nop>", { silent = true, desc = "[B] Disable space
 map("n", "<C-g>", "2<C-g>")
 
 -- Execute macro in register q from next line to end of file
-map("n", "<leader>q", ":.+1,$normal @q<cr>",
-  { silent = true, desc = "[B] Execute @q on (.+1,$)" })
+map("n", "<leader>q", "<cmd>.+1,$normal @q<cr>",
+  { desc = "[B] Execute @q on (.+1,$)" })
 
 -- Toggle hidden characters (set list!)
-map("n", "<leader>1", ":set list!<cr>",
-  { silent = true, desc = "[B] Toggle hidden chars" })
+map("n", "<leader>1", "<cmd>set list!<cr>",
+  { desc = "[B] Toggle hidden chars" })
 
 -- ============================================================================
 -- Buffer / search
 -- ============================================================================
 
-map("n", "<C-n>", ":bnext<cr>",     { silent = true, desc = "[B] Next buffer" })
-map("n", "<C-p>", ":bprevious<cr>", { silent = true, desc = "[B] Previous buffer" })
+map("n", "<C-n>", "<cmd>bnext<cr>",     { desc = "[B] Next buffer" })
+map("n", "<C-p>", "<cmd>bprevious<cr>", { desc = "[B] Previous buffer" })
 
--- <CR> / <Esc> also clear search highlight
-map("n", "<cr>",  ":noh<cr><cr>", { silent = true })
-map("n", "<esc>", ":noh<esc>",   { silent = true })
+-- <CR> / <Esc> also clear search highlight. Special buffers (quickfix,
+-- command-line window, ...) keep the default keys: `:noh` there would fail
+-- with E11 in the cmdwin and shadow <CR> jumping to a quickfix entry.
+map("n", "<cr>", function()
+  if vim.bo.buftype ~= "" then
+    return "<cr>"
+  end
+  return "<cmd>noh<cr><cr>"
+end, { expr = true, silent = true, desc = "[B] <CR> (also clears search highlight)" })
+map("n", "<esc>", function()
+  if vim.bo.buftype ~= "" then
+    return "<esc>"
+  end
+  return "<cmd>noh<cr>"
+end, { expr = true, silent = true, desc = "[B] <Esc> (also clears search highlight)" })
 
 -- ============================================================================
 -- Diagnostics
@@ -77,22 +89,22 @@ end, { desc = "[B] Search TODO/FIXME comments" })
 -- Quickfix
 -- ============================================================================
 
-map("n", "<leader>co", ":copen<cr>",  { silent = true, desc = "[B] Open quickfix list" })
-map("n", "<leader>cq", ":cclose<cr>", { silent = true, desc = "[B] Close quickfix list" })
+map("n", "<leader>co", "<cmd>copen<cr>",  { desc = "[B] Open quickfix list" })
+map("n", "<leader>cq", "<cmd>cclose<cr>", { desc = "[B] Close quickfix list" })
 map("n", "<leader>ca",
-  ':caddexpr expand("%") .. ":" .. line(".") ..  ":" .. getline(".")<cr>',
-  { silent = true, desc = "[B] Add current line to qf" })
-map("n", "<leader>cc", ":cexpr []<cr>", { silent = true, desc = "[B] Clear qf list" })
+  '<cmd>caddexpr expand("%") .. ":" .. line(".") .. ":" .. getline(".")<cr>',
+  { desc = "[B] Add current line to qf" })
+map("n", "<leader>cc", "<cmd>cexpr []<cr>", { desc = "[B] Clear qf list" })
 map("n", "<leader>cs", save_quickfix_to_file,
-  { noremap = true, silent = true, desc = "[B] Save qf list to file" })
-map("n", "<leader>cL", ":cfile .qf<cr>",
-  { silent = true, desc = "[B] Load qf list from file" })
+  { desc = "[B] Save qf list to file" })
+map("n", "<leader>cL", "<cmd>cfile .qf<cr>",
+  { desc = "[B] Load qf list from file" })
 
 -- Quickfix navigation
-map("n", "<leader>cn", ":cnext<cr>",     { silent = true, desc = "[B] Next qf item" })
-map("n", "<leader>cp", ":cprevious<cr>", { silent = true, desc = "[B] Previous qf item" })
-map("n", "<leader>cf", ":cfirst<cr>",    { silent = true, desc = "[B] First qf item" })
-map("n", "<leader>cl", ":clast<cr>",     { silent = true, desc = "[B] Last qf item" })
+map("n", "<leader>cn", "<cmd>cnext<cr>",     { desc = "[B] Next qf item" })
+map("n", "<leader>cp", "<cmd>cprevious<cr>", { desc = "[B] Previous qf item" })
+map("n", "<leader>cf", "<cmd>cfirst<cr>",    { desc = "[B] First qf item" })
+map("n", "<leader>cl", "<cmd>clast<cr>",     { desc = "[B] Last qf item" })
 
 -- ============================================================================
 -- Misc
@@ -109,6 +121,9 @@ end, { desc = "[B] Yank file:line:col" })
 -- ============================================================================
 -- Text objects
 -- ============================================================================
+
+-- These stay `:<c-u>` on purpose: <cmd> would run while still in visual
+-- mode, where `$v^` behaves differently (v toggles visual off mid-motion).
 
 -- In line: end of line back to first non-blank
 map({ "o", "v" }, "il", ":<c-u>normal! $v^<cr>",

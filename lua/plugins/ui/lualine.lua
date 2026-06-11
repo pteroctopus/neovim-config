@@ -1,7 +1,5 @@
 return {
   enabled = true,
-  -- lazy = true,
-  -- event = "VeryLazy",
   -- Set lualine as statusline
   "nvim-lualine/lualine.nvim",
   -- See `:help lualine.txt`
@@ -47,13 +45,7 @@ return {
     },
     tabline = {
       lualine_a = {
-        {
-          "buffers",
-          --max_length = vim.o.columns * 9/10,
-          -- buffers_color = {
-          --   active = { fg = "#a0a8b7", bg = "#172a3a", gui = "bold" },
-          -- },
-        },
+        { "buffers" },
       },
       lualine_b = {},
       lualine_c = {},

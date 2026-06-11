@@ -1,3 +1,4 @@
 .luarc.json
 wt/
 MIGRATION.md
+.local/

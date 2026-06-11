@@ -5,10 +5,10 @@ return {
   lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   keys = {
-    { "<leader>gp", ":Gitsigns prev_hunk<cr>", desc = "[GS] Go to Previous Hunk", silent = true },
-    { "<leader>gn", ":Gitsigns next_hunk<cr>", desc = "[GS] Go to Next Hunk", silent = true },
-    { "<leader>gP", ":Gitsigns preview_hunk<cr>", desc = "[GS] Preview Hunk", silent = true },
-    { "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>", desc = "[GS] Current line blame", silent = true },
+    { "<leader>gp", function() require("gitsigns").nav_hunk("prev") end, desc = "[GS] Go to Previous Hunk" },
+    { "<leader>gn", function() require("gitsigns").nav_hunk("next") end, desc = "[GS] Go to Next Hunk" },
+    { "<leader>gP", function() require("gitsigns").preview_hunk() end, desc = "[GS] Preview Hunk" },
+    { "<leader>gb", function() require("gitsigns").toggle_current_line_blame() end, desc = "[GS] Current line blame" },
   },
   opts = {
     -- See `:help gitsigns.txt`
