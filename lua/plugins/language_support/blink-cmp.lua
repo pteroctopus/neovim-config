@@ -2,16 +2,9 @@ return {
   "saghen/blink.cmp",
   lazy = false, -- handles its own lazy loading
   version = "1.*", -- use prebuilt binary; no rust toolchain needed
-  dependencies = {
-    {
-      "L3MON4D3/LuaSnip",
-      version = "v2.*",
-      dependencies = { "rafamadriz/friendly-snippets" },
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end,
-    },
-  },
+  -- friendly-snippets (vscode-style) are loaded by blink's native snippet
+  -- engine directly; no LuaSnip needed for the only snippets we use.
+  dependencies = { "rafamadriz/friendly-snippets" },
   opts = {
     -- <CR> accepts, <C-n>/<C-p> navigate, <C-Space> opens docs, <C-e> hides
     keymap = { preset = "enter" },
@@ -58,7 +51,7 @@ return {
         },
       },
     },
-    snippets = { preset = "luasnip" },
+    -- Default snippet engine = vim.snippet (native); auto-loads friendly-snippets.
     fuzzy = { implementation = "prefer_rust_with_warning" },
     -- Signature help popup when typing '(' or ',' (still experimental in blink 1.x).
     signature = { enabled = true },
